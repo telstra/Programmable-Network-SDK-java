@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **nsdUuid** | **String** | no longer used |  [optional]
 **guidTopologyId** | **String** |  |  [optional]
 **createdBy** | **String** |  |  [optional]
-**creationDate** | **Integer** |  |  [optional]
+**creationDate** | **Long** |  |  [optional]
 **deletionDate** | **Integer** |  |  [optional]
 
 

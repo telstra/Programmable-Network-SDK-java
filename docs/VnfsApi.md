@@ -4,12 +4,12 @@ All URIs are relative to *https://penapi.pacnetconnect.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**listImagesInTheMarketplace**](VnfsApi.md#listImagesInTheMarketplace) | **GET** /1.0.0/marketplace/image | List images in the Marketplace
+[**100MarketplaceImageGet**](VnfsApi.md#100MarketplaceImageGet) | **GET** /1.0.0/marketplace/image | List images in the Marketplace
 
 
-<a name="listImagesInTheMarketplace"></a>
-# **listImagesInTheMarketplace**
-> Model100MarketplaceImageResponse listImagesInTheMarketplace()
+<a name="100MarketplaceImageGet"></a>
+# **100MarketplaceImageGet**
+> Model100MarketplaceImageResponse 100MarketplaceImageGet()
 
 List images in the Marketplace
 
@@ -18,24 +18,16 @@ List images in the Marketplace
 ### Example
 ```java
 // Import classes:
-//import invalidPackageName.ApiClient;
 //import invalidPackageName.ApiException;
-//import invalidPackageName.Configuration;
-//import invalidPackageName.auth.*;
 //import TelstraTPN.VnfsApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 VnfsApi apiInstance = new VnfsApi();
 try {
-    Model100MarketplaceImageResponse result = apiInstance.listImagesInTheMarketplace();
+    Model100MarketplaceImageResponse result = apiInstance.100MarketplaceImageGet();
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling VnfsApi#listImagesInTheMarketplace");
+    System.err.println("Exception when calling VnfsApi#100MarketplaceImageGet");
     e.printStackTrace();
 }
 ```
@@ -49,7 +41,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 

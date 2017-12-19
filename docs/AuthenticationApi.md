@@ -4,13 +4,13 @@ All URIs are relative to *https://penapi.pacnetconnect.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createAnAuthenticationToken**](AuthenticationApi.md#createAnAuthenticationToken) | **POST** /1.0.0/auth/generatetoken | Create an authentication token
-[**validateAuthenticationToken**](AuthenticationApi.md#validateAuthenticationToken) | **GET** /1.0.0/auth/validatetoken | Validate authentication token
+[**100AuthGeneratetokenPost**](AuthenticationApi.md#100AuthGeneratetokenPost) | **POST** /1.0.0/auth/generatetoken | Create an authentication token
+[**100AuthValidatetokenGet**](AuthenticationApi.md#100AuthValidatetokenGet) | **GET** /1.0.0/auth/validatetoken | Validate authentication token
 
 
-<a name="createAnAuthenticationToken"></a>
-# **createAnAuthenticationToken**
-> Model100AuthGeneratetokenResponse createAnAuthenticationToken(grantType, username, password)
+<a name="100AuthGeneratetokenPost"></a>
+# **100AuthGeneratetokenPost**
+> Model100AuthGeneratetokenResponse 100AuthGeneratetokenPost(grantType, username, password)
 
 Create an authentication token
 
@@ -19,27 +19,19 @@ Create an authentication token
 ### Example
 ```java
 // Import classes:
-//import invalidPackageName.ApiClient;
 //import invalidPackageName.ApiException;
-//import invalidPackageName.Configuration;
-//import invalidPackageName.auth.*;
 //import TelstraTPN.AuthenticationApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 AuthenticationApi apiInstance = new AuthenticationApi();
 String grantType = "grantType_example"; // String | 
 String username = "username_example"; // String | 
 String password = "password_example"; // String | 
 try {
-    Model100AuthGeneratetokenResponse result = apiInstance.createAnAuthenticationToken(grantType, username, password);
+    Model100AuthGeneratetokenResponse result = apiInstance.100AuthGeneratetokenPost(grantType, username, password);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling AuthenticationApi#createAnAuthenticationToken");
+    System.err.println("Exception when calling AuthenticationApi#100AuthGeneratetokenPost");
     e.printStackTrace();
 }
 ```
@@ -58,16 +50,16 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 
  - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
-<a name="validateAuthenticationToken"></a>
-# **validateAuthenticationToken**
-> Model100AuthValidatetokenResponse validateAuthenticationToken()
+<a name="100AuthValidatetokenGet"></a>
+# **100AuthValidatetokenGet**
+> Model100AuthValidatetokenResponse 100AuthValidatetokenGet()
 
 Validate authentication token
 
@@ -76,24 +68,16 @@ Validate the authentication token and get information about the user (roles, per
 ### Example
 ```java
 // Import classes:
-//import invalidPackageName.ApiClient;
 //import invalidPackageName.ApiException;
-//import invalidPackageName.Configuration;
-//import invalidPackageName.auth.*;
 //import TelstraTPN.AuthenticationApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 AuthenticationApi apiInstance = new AuthenticationApi();
 try {
-    Model100AuthValidatetokenResponse result = apiInstance.validateAuthenticationToken();
+    Model100AuthValidatetokenResponse result = apiInstance.100AuthValidatetokenGet();
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling AuthenticationApi#validateAuthenticationToken");
+    System.err.println("Exception when calling AuthenticationApi#100AuthValidatetokenGet");
     e.printStackTrace();
 }
 ```
@@ -107,7 +91,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 

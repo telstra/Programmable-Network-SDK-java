@@ -4,12 +4,12 @@ All URIs are relative to *https://penapi.pacnetconnect.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getListOfAllTheDataCenters**](DatacentresApi.md#getListOfAllTheDataCenters) | **GET** /1.0.0/inventory/datacenters | Get list of all the data centers
+[**100InventoryDatacentersGet**](DatacentresApi.md#100InventoryDatacentersGet) | **GET** /1.0.0/inventory/datacenters | Get list of all the data centers
 
 
-<a name="getListOfAllTheDataCenters"></a>
-# **getListOfAllTheDataCenters**
-> List&lt;Model100InventoryDatacentersResponse&gt; getListOfAllTheDataCenters()
+<a name="100InventoryDatacentersGet"></a>
+# **100InventoryDatacentersGet**
+> List&lt;Model100InventoryDatacentersResponse&gt; 100InventoryDatacentersGet()
 
 Get list of all the data centers
 
@@ -18,24 +18,16 @@ Get list of all the data centers
 ### Example
 ```java
 // Import classes:
-//import invalidPackageName.ApiClient;
 //import invalidPackageName.ApiException;
-//import invalidPackageName.Configuration;
-//import invalidPackageName.auth.*;
 //import TelstraTPN.DatacentresApi;
 
-ApiClient defaultClient = Configuration.getDefaultApiClient();
-
-// Configure OAuth2 access token for authorization: auth
-OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
-auth.setAccessToken("YOUR ACCESS TOKEN");
 
 DatacentresApi apiInstance = new DatacentresApi();
 try {
-    List<Model100InventoryDatacentersResponse> result = apiInstance.getListOfAllTheDataCenters();
+    List<Model100InventoryDatacentersResponse> result = apiInstance.100InventoryDatacentersGet();
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling DatacentresApi#getListOfAllTheDataCenters");
+    System.err.println("Exception when calling DatacentresApi#100InventoryDatacentersGet");
     e.printStackTrace();
 }
 ```
@@ -49,7 +41,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[auth](../README.md#auth)
+No authorization required
 
 ### HTTP request headers
 

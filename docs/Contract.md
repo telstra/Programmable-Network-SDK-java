@@ -14,8 +14,8 @@ Name | Type | Description | Notes
 **currencyCode** | **String** |  |  [optional]
 **currencyID** | **String** |  |  [optional]
 **renewalOption** | **Integer** | Renewal Option: 0&#x3D;Auto Disconnect, 1&#x3D;Auto Renew, 2&#x3D;Pay per hour |  [optional]
-**contractStartTime** | **Integer** |  |  [optional]
-**contractEndTime** | **Integer** |  |  [optional]
+**contractStartTime** | **Long** |  |  [optional]
+**contractEndTime** | **Long** |  |  [optional]
 
 
 
