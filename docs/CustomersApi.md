@@ -4,13 +4,13 @@ All URIs are relative to *https://penapi.pacnetconnect.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**100AccountByCustomeruuidGet**](CustomersApi.md#100AccountByCustomeruuidGet) | **GET** /1.0.0/account/{customeruuid} | Get account information details
-[**100AccountUserByCustomeruuidGet**](CustomersApi.md#100AccountUserByCustomeruuidGet) | **GET** /1.0.0/account/{customeruuid}/user | List users
+[**accountByCustomeruuidGet**](CustomersApi.md#accountByCustomeruuidGet) | **GET** /1.0.0/account/{customeruuid} | Get account information details
+[**accountUserByCustomeruuidGet**](CustomersApi.md#accountUserByCustomeruuidGet) | **GET** /1.0.0/account/{customeruuid}/user | List users
 
 
-<a name="100AccountByCustomeruuidGet"></a>
-# **100AccountByCustomeruuidGet**
-> Model100AccountResponse 100AccountByCustomeruuidGet(customeruuid)
+<a name="accountByCustomeruuidGet"></a>
+# **accountByCustomeruuidGet**
+> List&lt;AccountResponse&gt; accountByCustomeruuidGet(customeruuid)
 
 Get account information details
 
@@ -19,17 +19,25 @@ Get the account information for the specified customer
 ### Example
 ```java
 // Import classes:
+//import invalidPackageName.ApiClient;
 //import invalidPackageName.ApiException;
+//import invalidPackageName.Configuration;
+//import invalidPackageName.auth.*;
 //import TelstraTPN.CustomersApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: auth
+OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
+auth.setAccessToken("YOUR ACCESS TOKEN");
 
 CustomersApi apiInstance = new CustomersApi();
 String customeruuid = "customeruuid_example"; // String | Unique identifier representing a specific customer
 try {
-    Model100AccountResponse result = apiInstance.100AccountByCustomeruuidGet(customeruuid);
+    List<AccountResponse> result = apiInstance.accountByCustomeruuidGet(customeruuid);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling CustomersApi#100AccountByCustomeruuidGet");
+    System.err.println("Exception when calling CustomersApi#accountByCustomeruuidGet");
     e.printStackTrace();
 }
 ```
@@ -42,20 +50,20 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Model100AccountResponse**](Model100AccountResponse.md)
+[**List&lt;AccountResponse&gt;**](AccountResponse.md)
 
 ### Authorization
 
-No authorization required
+[auth](../README.md#auth)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="100AccountUserByCustomeruuidGet"></a>
-# **100AccountUserByCustomeruuidGet**
-> List&lt;User&gt; 100AccountUserByCustomeruuidGet(customeruuid)
+<a name="accountUserByCustomeruuidGet"></a>
+# **accountUserByCustomeruuidGet**
+> List&lt;User&gt; accountUserByCustomeruuidGet(customeruuid)
 
 List users
 
@@ -64,17 +72,25 @@ List all users associated with the specified customer
 ### Example
 ```java
 // Import classes:
+//import invalidPackageName.ApiClient;
 //import invalidPackageName.ApiException;
+//import invalidPackageName.Configuration;
+//import invalidPackageName.auth.*;
 //import TelstraTPN.CustomersApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: auth
+OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
+auth.setAccessToken("YOUR ACCESS TOKEN");
 
 CustomersApi apiInstance = new CustomersApi();
 String customeruuid = "customeruuid_example"; // String | Unique identifier representing a specific customer
 try {
-    List<User> result = apiInstance.100AccountUserByCustomeruuidGet(customeruuid);
+    List<User> result = apiInstance.accountUserByCustomeruuidGet(customeruuid);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling CustomersApi#100AccountUserByCustomeruuidGet");
+    System.err.println("Exception when calling CustomersApi#accountUserByCustomeruuidGet");
     e.printStackTrace();
 }
 ```
@@ -91,7 +107,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[auth](../README.md#auth)
 
 ### HTTP request headers
 

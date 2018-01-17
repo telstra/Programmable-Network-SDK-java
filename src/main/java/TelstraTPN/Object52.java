@@ -33,7 +33,7 @@ import java.util.List;
 /**
  * Object52
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-12-19T14:16:29.049+11:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-01-17T21:20:10.329+11:00")
 public class Object52 {
   @SerializedName("brief_description")
   private String briefDescription = null;
@@ -448,7 +448,7 @@ public class Object52 {
    * @return licenseRequired
   **/
   @ApiModelProperty(value = "")
-  public Boolean getLicenseRequired() {
+  public Boolean isLicenseRequired() {
     return licenseRequired;
   }
 
@@ -628,7 +628,7 @@ public class Object52 {
    * @return restrictVncConsole
   **/
   @ApiModelProperty(value = "")
-  public Boolean getRestrictVncConsole() {
+  public Boolean isRestrictVncConsole() {
     return restrictVncConsole;
   }
 
@@ -664,7 +664,7 @@ public class Object52 {
    * @return supportHotPlug
   **/
   @ApiModelProperty(value = "")
-  public Boolean getSupportHotPlug() {
+  public Boolean isSupportHotPlug() {
     return supportHotPlug;
   }
 
@@ -855,6 +855,6 @@ public class Object52 {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

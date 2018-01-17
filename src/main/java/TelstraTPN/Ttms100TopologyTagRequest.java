@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * Ttms100TopologyTagRequest
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-12-19T14:16:29.049+11:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-01-17T21:20:10.329+11:00")
 public class Ttms100TopologyTagRequest {
   @SerializedName("name")
   private String name = null;
@@ -111,6 +111,6 @@ public class Ttms100TopologyTagRequest {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

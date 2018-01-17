@@ -28,7 +28,7 @@ import java.util.List;
 /**
  * Params31
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-12-19T14:16:29.049+11:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-01-17T21:20:10.329+11:00")
 public class Params31 {
   @SerializedName("description")
   private String description = null;
@@ -106,6 +106,7 @@ public class Params31 {
 
    /**
    * Duration of contract in minutes
+   * minimum: 3600
    * @return duration
   **/
   @ApiModelProperty(example = "3600", value = "Duration of contract in minutes")
@@ -124,9 +125,11 @@ public class Params31 {
 
    /**
    * Bandwidth in kB/s
+   * minimum: 0
+   * maximum: 0
    * @return bandwidth
   **/
-  @ApiModelProperty(example = "1000", value = "Bandwidth in kB/s")
+  @ApiModelProperty(example = "0", value = "Bandwidth in kB/s")
   public Integer getBandwidth() {
     return bandwidth;
   }
@@ -466,6 +469,6 @@ public class Params31 {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

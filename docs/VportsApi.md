@@ -4,14 +4,14 @@ All URIs are relative to *https://penapi.pacnetconnect.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**100InventoryRegularvportPost**](VportsApi.md#100InventoryRegularvportPost) | **POST** /1.0.0/inventory/regularvport | Create VPort for physical endpoint
-[**100InventoryVnfVportPost**](VportsApi.md#100InventoryVnfVportPost) | **POST** /1.0.0/inventory/vnf/vport | Create VNF VPort
-[**100InventoryVportByVportuuidGet**](VportsApi.md#100InventoryVportByVportuuidGet) | **GET** /1.0.0/inventory/vport/{vportuuid} | Get information about the specified VPort
+[**inventoryRegularvportPost**](VportsApi.md#inventoryRegularvportPost) | **POST** /1.0.0/inventory/regularvport | Create VPort for physical endpoint
+[**inventoryVnfVportPost**](VportsApi.md#inventoryVnfVportPost) | **POST** /1.0.0/inventory/vnf/vport | Create VNF VPort
+[**inventoryVportByVportuuidGet**](VportsApi.md#inventoryVportByVportuuidGet) | **GET** /1.0.0/inventory/vport/{vportuuid} | Get information about the specified VPort
 
 
-<a name="100InventoryRegularvportPost"></a>
-# **100InventoryRegularvportPost**
-> Model100InventoryRegularvportResponse 100InventoryRegularvportPost(body)
+<a name="inventoryRegularvportPost"></a>
+# **inventoryRegularvportPost**
+> InventoryRegularvportResponse inventoryRegularvportPost(body)
 
 Create VPort for physical endpoint
 
@@ -20,17 +20,25 @@ Create VPort representing a VLAN on a Physical Ethernet Port
 ### Example
 ```java
 // Import classes:
+//import invalidPackageName.ApiClient;
 //import invalidPackageName.ApiException;
+//import invalidPackageName.Configuration;
+//import invalidPackageName.auth.*;
 //import TelstraTPN.VportsApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: auth
+OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
+auth.setAccessToken("YOUR ACCESS TOKEN");
 
 VportsApi apiInstance = new VportsApi();
-Model100InventoryRegularvportRequest body = new Model100InventoryRegularvportRequest(); // Model100InventoryRegularvportRequest | 
+InventoryRegularvportRequest body = new InventoryRegularvportRequest(); // InventoryRegularvportRequest | 
 try {
-    Model100InventoryRegularvportResponse result = apiInstance.100InventoryRegularvportPost(body);
+    InventoryRegularvportResponse result = apiInstance.inventoryRegularvportPost(body);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling VportsApi#100InventoryRegularvportPost");
+    System.err.println("Exception when calling VportsApi#inventoryRegularvportPost");
     e.printStackTrace();
 }
 ```
@@ -39,24 +47,24 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Model100InventoryRegularvportRequest**](Model100InventoryRegularvportRequest.md)|  | [optional]
+ **body** | [**InventoryRegularvportRequest**](InventoryRegularvportRequest.md)|  | [optional]
 
 ### Return type
 
-[**Model100InventoryRegularvportResponse**](Model100InventoryRegularvportResponse.md)
+[**InventoryRegularvportResponse**](InventoryRegularvportResponse.md)
 
 ### Authorization
 
-No authorization required
+[auth](../README.md#auth)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="100InventoryVnfVportPost"></a>
-# **100InventoryVnfVportPost**
-> Model100InventoryVnfVportResponse 100InventoryVnfVportPost(body)
+<a name="inventoryVnfVportPost"></a>
+# **inventoryVnfVportPost**
+> InventoryVnfVportResponse inventoryVnfVportPost(body)
 
 Create VNF VPort
 
@@ -65,17 +73,25 @@ Create VNF VPort
 ### Example
 ```java
 // Import classes:
+//import invalidPackageName.ApiClient;
 //import invalidPackageName.ApiException;
+//import invalidPackageName.Configuration;
+//import invalidPackageName.auth.*;
 //import TelstraTPN.VportsApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: auth
+OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
+auth.setAccessToken("YOUR ACCESS TOKEN");
 
 VportsApi apiInstance = new VportsApi();
-Model100InventoryVnfVportRequest body = new Model100InventoryVnfVportRequest(); // Model100InventoryVnfVportRequest | 
+InventoryVnfVportRequest body = new InventoryVnfVportRequest(); // InventoryVnfVportRequest | 
 try {
-    Model100InventoryVnfVportResponse result = apiInstance.100InventoryVnfVportPost(body);
+    InventoryVnfVportResponse result = apiInstance.inventoryVnfVportPost(body);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling VportsApi#100InventoryVnfVportPost");
+    System.err.println("Exception when calling VportsApi#inventoryVnfVportPost");
     e.printStackTrace();
 }
 ```
@@ -84,24 +100,24 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Model100InventoryVnfVportRequest**](Model100InventoryVnfVportRequest.md)|  | [optional]
+ **body** | [**InventoryVnfVportRequest**](InventoryVnfVportRequest.md)|  | [optional]
 
 ### Return type
 
-[**Model100InventoryVnfVportResponse**](Model100InventoryVnfVportResponse.md)
+[**InventoryVnfVportResponse**](InventoryVnfVportResponse.md)
 
 ### Authorization
 
-No authorization required
+[auth](../README.md#auth)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="100InventoryVportByVportuuidGet"></a>
-# **100InventoryVportByVportuuidGet**
-> EndpointPort 100InventoryVportByVportuuidGet(vportuuid)
+<a name="inventoryVportByVportuuidGet"></a>
+# **inventoryVportByVportuuidGet**
+> List&lt;EndpointPort&gt; inventoryVportByVportuuidGet(vportuuid)
 
 Get information about the specified VPort
 
@@ -110,17 +126,25 @@ Get information about the specified VPort
 ### Example
 ```java
 // Import classes:
+//import invalidPackageName.ApiClient;
 //import invalidPackageName.ApiException;
+//import invalidPackageName.Configuration;
+//import invalidPackageName.auth.*;
 //import TelstraTPN.VportsApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: auth
+OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
+auth.setAccessToken("YOUR ACCESS TOKEN");
 
 VportsApi apiInstance = new VportsApi();
 String vportuuid = "vportuuid_example"; // String | Unique identifier representing a specific virtual port
 try {
-    EndpointPort result = apiInstance.100InventoryVportByVportuuidGet(vportuuid);
+    List<EndpointPort> result = apiInstance.inventoryVportByVportuuidGet(vportuuid);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling VportsApi#100InventoryVportByVportuuidGet");
+    System.err.println("Exception when calling VportsApi#inventoryVportByVportuuidGet");
     e.printStackTrace();
 }
 ```
@@ -133,11 +157,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**EndpointPort**](EndpointPort.md)
+[**List&lt;EndpointPort&gt;**](EndpointPort.md)
 
 ### Authorization
 
-No authorization required
+[auth](../README.md#auth)
 
 ### HTTP request headers
 

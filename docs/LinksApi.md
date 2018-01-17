@@ -4,15 +4,15 @@ All URIs are relative to *https://penapi.pacnetconnect.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**100InventoryLinkPost**](LinksApi.md#100InventoryLinkPost) | **POST** /1.0.0/inventory/link | Create Link and initial Contract
-[**100InventoryLinksByLinkidGet**](LinksApi.md#100InventoryLinksByLinkidGet) | **GET** /1.0.0/inventory/links/{linkid} | Get details of specified link
-[**100InventoryLinksCustomerByCustomeruuidGet**](LinksApi.md#100InventoryLinksCustomerByCustomeruuidGet) | **GET** /1.0.0/inventory/links/customer/{customeruuid} | Get active Links
-[**100InventoryLinksHistoryByLinkidGet**](LinksApi.md#100InventoryLinksHistoryByLinkidGet) | **GET** /1.0.0/inventory/links/history/{linkid} | Get Link history
+[**inventoryLinkPost**](LinksApi.md#inventoryLinkPost) | **POST** /1.0.0/inventory/link | Create Link and initial Contract
+[**inventoryLinksByLinkidGet**](LinksApi.md#inventoryLinksByLinkidGet) | **GET** /1.0.0/inventory/links/{linkid} | Get details of specified link
+[**inventoryLinksCustomerByCustomeruuidGet**](LinksApi.md#inventoryLinksCustomerByCustomeruuidGet) | **GET** /1.0.0/inventory/links/customer/{customeruuid} | Get active Links
+[**inventoryLinksHistoryByLinkidGet**](LinksApi.md#inventoryLinksHistoryByLinkidGet) | **GET** /1.0.0/inventory/links/history/{linkid} | Get Link history
 
 
-<a name="100InventoryLinkPost"></a>
-# **100InventoryLinkPost**
-> Model100InventoryLinkResponse 100InventoryLinkPost(body)
+<a name="inventoryLinkPost"></a>
+# **inventoryLinkPost**
+> InventoryLinkResponse inventoryLinkPost(body)
 
 Create Link and initial Contract
 
@@ -21,17 +21,25 @@ Create Link and initial Contract
 ### Example
 ```java
 // Import classes:
+//import invalidPackageName.ApiClient;
 //import invalidPackageName.ApiException;
+//import invalidPackageName.Configuration;
+//import invalidPackageName.auth.*;
 //import TelstraTPN.LinksApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: auth
+OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
+auth.setAccessToken("YOUR ACCESS TOKEN");
 
 LinksApi apiInstance = new LinksApi();
-Model100InventoryLinkRequest body = new Model100InventoryLinkRequest(); // Model100InventoryLinkRequest | 
+InventoryLinkRequest body = new InventoryLinkRequest(); // InventoryLinkRequest | 
 try {
-    Model100InventoryLinkResponse result = apiInstance.100InventoryLinkPost(body);
+    InventoryLinkResponse result = apiInstance.inventoryLinkPost(body);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling LinksApi#100InventoryLinkPost");
+    System.err.println("Exception when calling LinksApi#inventoryLinkPost");
     e.printStackTrace();
 }
 ```
@@ -40,24 +48,24 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**Model100InventoryLinkRequest**](Model100InventoryLinkRequest.md)|  | [optional]
+ **body** | [**InventoryLinkRequest**](InventoryLinkRequest.md)|  | [optional]
 
 ### Return type
 
-[**Model100InventoryLinkResponse**](Model100InventoryLinkResponse.md)
+[**InventoryLinkResponse**](InventoryLinkResponse.md)
 
 ### Authorization
 
-No authorization required
+[auth](../README.md#auth)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="100InventoryLinksByLinkidGet"></a>
-# **100InventoryLinksByLinkidGet**
-> Model100InventoryLinksResponse 100InventoryLinksByLinkidGet(linkid)
+<a name="inventoryLinksByLinkidGet"></a>
+# **inventoryLinksByLinkidGet**
+> InventoryLinksResponse inventoryLinksByLinkidGet(linkid)
 
 Get details of specified link
 
@@ -66,17 +74,25 @@ Get details of specified link
 ### Example
 ```java
 // Import classes:
+//import invalidPackageName.ApiClient;
 //import invalidPackageName.ApiException;
+//import invalidPackageName.Configuration;
+//import invalidPackageName.auth.*;
 //import TelstraTPN.LinksApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: auth
+OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
+auth.setAccessToken("YOUR ACCESS TOKEN");
 
 LinksApi apiInstance = new LinksApi();
 String linkid = "linkid_example"; // String | Unique identifier representing a specific link
 try {
-    Model100InventoryLinksResponse result = apiInstance.100InventoryLinksByLinkidGet(linkid);
+    InventoryLinksResponse result = apiInstance.inventoryLinksByLinkidGet(linkid);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling LinksApi#100InventoryLinksByLinkidGet");
+    System.err.println("Exception when calling LinksApi#inventoryLinksByLinkidGet");
     e.printStackTrace();
 }
 ```
@@ -89,20 +105,20 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Model100InventoryLinksResponse**](Model100InventoryLinksResponse.md)
+[**InventoryLinksResponse**](InventoryLinksResponse.md)
 
 ### Authorization
 
-No authorization required
+[auth](../README.md#auth)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="100InventoryLinksCustomerByCustomeruuidGet"></a>
-# **100InventoryLinksCustomerByCustomeruuidGet**
-> List&lt;Link&gt; 100InventoryLinksCustomerByCustomeruuidGet(customeruuid)
+<a name="inventoryLinksCustomerByCustomeruuidGet"></a>
+# **inventoryLinksCustomerByCustomeruuidGet**
+> List&lt;Link&gt; inventoryLinksCustomerByCustomeruuidGet(customeruuid)
 
 Get active Links
 
@@ -111,17 +127,25 @@ Get active Links
 ### Example
 ```java
 // Import classes:
+//import invalidPackageName.ApiClient;
 //import invalidPackageName.ApiException;
+//import invalidPackageName.Configuration;
+//import invalidPackageName.auth.*;
 //import TelstraTPN.LinksApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: auth
+OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
+auth.setAccessToken("YOUR ACCESS TOKEN");
 
 LinksApi apiInstance = new LinksApi();
 String customeruuid = "customeruuid_example"; // String | Unique identifier representing a specific customer
 try {
-    List<Link> result = apiInstance.100InventoryLinksCustomerByCustomeruuidGet(customeruuid);
+    List<Link> result = apiInstance.inventoryLinksCustomerByCustomeruuidGet(customeruuid);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling LinksApi#100InventoryLinksCustomerByCustomeruuidGet");
+    System.err.println("Exception when calling LinksApi#inventoryLinksCustomerByCustomeruuidGet");
     e.printStackTrace();
 }
 ```
@@ -138,16 +162,16 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[auth](../README.md#auth)
 
 ### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/json
 
-<a name="100InventoryLinksHistoryByLinkidGet"></a>
-# **100InventoryLinksHistoryByLinkidGet**
-> Model100InventoryLinksHistoryResponse 100InventoryLinksHistoryByLinkidGet(linkid)
+<a name="inventoryLinksHistoryByLinkidGet"></a>
+# **inventoryLinksHistoryByLinkidGet**
+> InventoryLinksHistoryResponse inventoryLinksHistoryByLinkidGet(linkid)
 
 Get Link history
 
@@ -156,17 +180,25 @@ Get Link history
 ### Example
 ```java
 // Import classes:
+//import invalidPackageName.ApiClient;
 //import invalidPackageName.ApiException;
+//import invalidPackageName.Configuration;
+//import invalidPackageName.auth.*;
 //import TelstraTPN.LinksApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: auth
+OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
+auth.setAccessToken("YOUR ACCESS TOKEN");
 
 LinksApi apiInstance = new LinksApi();
 String linkid = "linkid_example"; // String | Unique identifier representing a specific link
 try {
-    Model100InventoryLinksHistoryResponse result = apiInstance.100InventoryLinksHistoryByLinkidGet(linkid);
+    InventoryLinksHistoryResponse result = apiInstance.inventoryLinksHistoryByLinkidGet(linkid);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling LinksApi#100InventoryLinksHistoryByLinkidGet");
+    System.err.println("Exception when calling LinksApi#inventoryLinksHistoryByLinkidGet");
     e.printStackTrace();
 }
 ```
@@ -179,11 +211,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Model100InventoryLinksHistoryResponse**](Model100InventoryLinksHistoryResponse.md)
+[**InventoryLinksHistoryResponse**](InventoryLinksHistoryResponse.md)
 
 ### Authorization
 
-No authorization required
+[auth](../README.md#auth)
 
 ### HTTP request headers
 

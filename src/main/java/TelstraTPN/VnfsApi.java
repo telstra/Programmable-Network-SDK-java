@@ -27,7 +27,7 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import TelstraTPN.Model100MarketplaceImageResponse;
+import TelstraTPN.MarketplaceImageResponse;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -55,19 +55,20 @@ public class VnfsApi {
     }
 
     /**
-     * Build call for 100MarketplaceImageGet
+     * Build call for marketplaceImageGet
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call 100MarketplaceImageGetCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call marketplaceImageGetCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/1.0.0/marketplace/image";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -97,43 +98,39 @@ public class VnfsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        String[] localVarAuthNames = new String[] { "auth" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call 100MarketplaceImageGetValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call marketplaceImageGetValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        
-        com.squareup.okhttp.Call call = 100MarketplaceImageGetCall(progressListener, progressRequestListener);
+
+        com.squareup.okhttp.Call call = marketplaceImageGetCall(progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * List images in the Marketplace
      * List images in the Marketplace
-     * @return Model100MarketplaceImageResponse
+     * @return MarketplaceImageResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Model100MarketplaceImageResponse 100MarketplaceImageGet() throws ApiException {
-        ApiResponse<Model100MarketplaceImageResponse> resp = 100MarketplaceImageGetWithHttpInfo();
+    public MarketplaceImageResponse marketplaceImageGet() throws ApiException {
+        ApiResponse<MarketplaceImageResponse> resp = marketplaceImageGetWithHttpInfo();
         return resp.getData();
     }
 
     /**
      * List images in the Marketplace
      * List images in the Marketplace
-     * @return ApiResponse&lt;Model100MarketplaceImageResponse&gt;
+     * @return ApiResponse&lt;MarketplaceImageResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Model100MarketplaceImageResponse> 100MarketplaceImageGetWithHttpInfo() throws ApiException {
-        com.squareup.okhttp.Call call = 100MarketplaceImageGetValidateBeforeCall(null, null);
-        Type localVarReturnType = new TypeToken<Model100MarketplaceImageResponse>(){}.getType();
+    public ApiResponse<MarketplaceImageResponse> marketplaceImageGetWithHttpInfo() throws ApiException {
+        com.squareup.okhttp.Call call = marketplaceImageGetValidateBeforeCall(null, null);
+        Type localVarReturnType = new TypeToken<MarketplaceImageResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -144,7 +141,7 @@ public class VnfsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call 100MarketplaceImageGetAsync(final ApiCallback<Model100MarketplaceImageResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call marketplaceImageGetAsync(final ApiCallback<MarketplaceImageResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -165,8 +162,8 @@ public class VnfsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = 100MarketplaceImageGetValidateBeforeCall(progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Model100MarketplaceImageResponse>(){}.getType();
+        com.squareup.okhttp.Call call = marketplaceImageGetValidateBeforeCall(progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<MarketplaceImageResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

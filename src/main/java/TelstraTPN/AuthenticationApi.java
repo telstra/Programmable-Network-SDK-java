@@ -27,8 +27,8 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import TelstraTPN.Model100AuthGeneratetokenResponse;
-import TelstraTPN.Model100AuthValidatetokenResponse;
+import TelstraTPN.AuthGeneratetokenResponse;
+import TelstraTPN.AuthValidatetokenResponse;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -56,7 +56,7 @@ public class AuthenticationApi {
     }
 
     /**
-     * Build call for 100AuthGeneratetokenPost
+     * Build call for authGeneratetokenPost
      * @param grantType  (required)
      * @param username  (required)
      * @param password  (required)
@@ -65,13 +65,14 @@ public class AuthenticationApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call 100AuthGeneratetokenPostCall(String grantType, String username, String password, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call authGeneratetokenPostCall(String grantType, String username, String password, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/1.0.0/auth/generatetoken";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -108,35 +109,31 @@ public class AuthenticationApi {
         }
 
         String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call 100AuthGeneratetokenPostValidateBeforeCall(String grantType, String username, String password, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call authGeneratetokenPostValidateBeforeCall(String grantType, String username, String password, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'grantType' is set
         if (grantType == null) {
-            throw new ApiException("Missing the required parameter 'grantType' when calling 100AuthGeneratetokenPost(Async)");
+            throw new ApiException("Missing the required parameter 'grantType' when calling authGeneratetokenPost(Async)");
         }
         
         // verify the required parameter 'username' is set
         if (username == null) {
-            throw new ApiException("Missing the required parameter 'username' when calling 100AuthGeneratetokenPost(Async)");
+            throw new ApiException("Missing the required parameter 'username' when calling authGeneratetokenPost(Async)");
         }
         
         // verify the required parameter 'password' is set
         if (password == null) {
-            throw new ApiException("Missing the required parameter 'password' when calling 100AuthGeneratetokenPost(Async)");
+            throw new ApiException("Missing the required parameter 'password' when calling authGeneratetokenPost(Async)");
         }
         
-        
-        com.squareup.okhttp.Call call = 100AuthGeneratetokenPostCall(grantType, username, password, progressListener, progressRequestListener);
+
+        com.squareup.okhttp.Call call = authGeneratetokenPostCall(grantType, username, password, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -145,11 +142,11 @@ public class AuthenticationApi {
      * @param grantType  (required)
      * @param username  (required)
      * @param password  (required)
-     * @return Model100AuthGeneratetokenResponse
+     * @return AuthGeneratetokenResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Model100AuthGeneratetokenResponse 100AuthGeneratetokenPost(String grantType, String username, String password) throws ApiException {
-        ApiResponse<Model100AuthGeneratetokenResponse> resp = 100AuthGeneratetokenPostWithHttpInfo(grantType, username, password);
+    public AuthGeneratetokenResponse authGeneratetokenPost(String grantType, String username, String password) throws ApiException {
+        ApiResponse<AuthGeneratetokenResponse> resp = authGeneratetokenPostWithHttpInfo(grantType, username, password);
         return resp.getData();
     }
 
@@ -159,12 +156,12 @@ public class AuthenticationApi {
      * @param grantType  (required)
      * @param username  (required)
      * @param password  (required)
-     * @return ApiResponse&lt;Model100AuthGeneratetokenResponse&gt;
+     * @return ApiResponse&lt;AuthGeneratetokenResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Model100AuthGeneratetokenResponse> 100AuthGeneratetokenPostWithHttpInfo(String grantType, String username, String password) throws ApiException {
-        com.squareup.okhttp.Call call = 100AuthGeneratetokenPostValidateBeforeCall(grantType, username, password, null, null);
-        Type localVarReturnType = new TypeToken<Model100AuthGeneratetokenResponse>(){}.getType();
+    public ApiResponse<AuthGeneratetokenResponse> authGeneratetokenPostWithHttpInfo(String grantType, String username, String password) throws ApiException {
+        com.squareup.okhttp.Call call = authGeneratetokenPostValidateBeforeCall(grantType, username, password, null, null);
+        Type localVarReturnType = new TypeToken<AuthGeneratetokenResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -178,7 +175,7 @@ public class AuthenticationApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call 100AuthGeneratetokenPostAsync(String grantType, String username, String password, final ApiCallback<Model100AuthGeneratetokenResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call authGeneratetokenPostAsync(String grantType, String username, String password, final ApiCallback<AuthGeneratetokenResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -199,25 +196,26 @@ public class AuthenticationApi {
             };
         }
 
-        com.squareup.okhttp.Call call = 100AuthGeneratetokenPostValidateBeforeCall(grantType, username, password, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Model100AuthGeneratetokenResponse>(){}.getType();
+        com.squareup.okhttp.Call call = authGeneratetokenPostValidateBeforeCall(grantType, username, password, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<AuthGeneratetokenResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
-     * Build call for 100AuthValidatetokenGet
+     * Build call for authValidatetokenGet
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call 100AuthValidatetokenGetCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call authValidatetokenGetCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/1.0.0/auth/validatetoken";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -248,42 +246,38 @@ public class AuthenticationApi {
         }
 
         String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call 100AuthValidatetokenGetValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call authValidatetokenGetValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        
-        com.squareup.okhttp.Call call = 100AuthValidatetokenGetCall(progressListener, progressRequestListener);
+
+        com.squareup.okhttp.Call call = authValidatetokenGetCall(progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Validate authentication token
      * Validate the authentication token and get information about the user (roles, permissions, etc.)
-     * @return Model100AuthValidatetokenResponse
+     * @return AuthValidatetokenResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Model100AuthValidatetokenResponse 100AuthValidatetokenGet() throws ApiException {
-        ApiResponse<Model100AuthValidatetokenResponse> resp = 100AuthValidatetokenGetWithHttpInfo();
+    public AuthValidatetokenResponse authValidatetokenGet() throws ApiException {
+        ApiResponse<AuthValidatetokenResponse> resp = authValidatetokenGetWithHttpInfo();
         return resp.getData();
     }
 
     /**
      * Validate authentication token
      * Validate the authentication token and get information about the user (roles, permissions, etc.)
-     * @return ApiResponse&lt;Model100AuthValidatetokenResponse&gt;
+     * @return ApiResponse&lt;AuthValidatetokenResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Model100AuthValidatetokenResponse> 100AuthValidatetokenGetWithHttpInfo() throws ApiException {
-        com.squareup.okhttp.Call call = 100AuthValidatetokenGetValidateBeforeCall(null, null);
-        Type localVarReturnType = new TypeToken<Model100AuthValidatetokenResponse>(){}.getType();
+    public ApiResponse<AuthValidatetokenResponse> authValidatetokenGetWithHttpInfo() throws ApiException {
+        com.squareup.okhttp.Call call = authValidatetokenGetValidateBeforeCall(null, null);
+        Type localVarReturnType = new TypeToken<AuthValidatetokenResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -294,7 +288,7 @@ public class AuthenticationApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call 100AuthValidatetokenGetAsync(final ApiCallback<Model100AuthValidatetokenResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call authValidatetokenGetAsync(final ApiCallback<AuthValidatetokenResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -315,8 +309,8 @@ public class AuthenticationApi {
             };
         }
 
-        com.squareup.okhttp.Call call = 100AuthValidatetokenGetValidateBeforeCall(progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Model100AuthValidatetokenResponse>(){}.getType();
+        com.squareup.okhttp.Call call = authValidatetokenGetValidateBeforeCall(progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<AuthValidatetokenResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

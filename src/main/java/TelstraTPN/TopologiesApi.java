@@ -66,12 +66,13 @@ public class TopologiesApi {
      */
     public com.squareup.okhttp.Call ttms100TopologyTagByTopotaguuidDeleteCall(String topotaguuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/ttms/1.0.0/topology_tag/{topotaguuid}/"
             .replaceAll("\\{" + "topotaguuid" + "\\}", apiClient.escapeString(topotaguuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -102,9 +103,9 @@ public class TopologiesApi {
         }
 
         String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call ttms100TopologyTagByTopotaguuidDeleteValidateBeforeCall(String topotaguuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -113,14 +114,10 @@ public class TopologiesApi {
             throw new ApiException("Missing the required parameter 'topotaguuid' when calling ttms100TopologyTagByTopotaguuidDelete(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = ttms100TopologyTagByTopotaguuidDeleteCall(topotaguuid, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -188,12 +185,13 @@ public class TopologiesApi {
      */
     public com.squareup.okhttp.Call ttms100TopologyTagByTopotaguuidGetCall(String topotaguuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/ttms/1.0.0/topology_tag/{topotaguuid}/"
             .replaceAll("\\{" + "topotaguuid" + "\\}", apiClient.escapeString(topotaguuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -224,9 +222,9 @@ public class TopologiesApi {
         }
 
         String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call ttms100TopologyTagByTopotaguuidGetValidateBeforeCall(String topotaguuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -235,14 +233,10 @@ public class TopologiesApi {
             throw new ApiException("Missing the required parameter 'topotaguuid' when calling ttms100TopologyTagByTopotaguuidGet(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = ttms100TopologyTagByTopotaguuidGetCall(topotaguuid, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -315,12 +309,13 @@ public class TopologiesApi {
      */
     public com.squareup.okhttp.Call ttms100TopologyTagByTopotaguuidPutCall(String topotaguuid, Ttms100TopologyTagRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
-        
+
         // create path and map variables
         String localVarPath = "/ttms/1.0.0/topology_tag/{topotaguuid}/"
             .replaceAll("\\{" + "topotaguuid" + "\\}", apiClient.escapeString(topotaguuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -351,9 +346,9 @@ public class TopologiesApi {
         }
 
         String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call ttms100TopologyTagByTopotaguuidPutValidateBeforeCall(String topotaguuid, Ttms100TopologyTagRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -362,14 +357,10 @@ public class TopologiesApi {
             throw new ApiException("Missing the required parameter 'topotaguuid' when calling ttms100TopologyTagByTopotaguuidPut(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = ttms100TopologyTagByTopotaguuidPutCall(topotaguuid, body, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -443,11 +434,12 @@ public class TopologiesApi {
      */
     public com.squareup.okhttp.Call ttms100TopologyTagGetCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/ttms/1.0.0/topology_tag";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -478,20 +470,16 @@ public class TopologiesApi {
         }
 
         String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call ttms100TopologyTagGetValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        
+
         com.squareup.okhttp.Call call = ttms100TopologyTagGetCall(progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -560,12 +548,13 @@ public class TopologiesApi {
      */
     public com.squareup.okhttp.Call ttms100TopologyTagObjectsByTopotaguuidGetCall(String topotaguuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/ttms/1.0.0/topology_tag/{topotaguuid}/objects/"
             .replaceAll("\\{" + "topotaguuid" + "\\}", apiClient.escapeString(topotaguuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -596,9 +585,9 @@ public class TopologiesApi {
         }
 
         String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call ttms100TopologyTagObjectsByTopotaguuidGetValidateBeforeCall(String topotaguuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -607,14 +596,10 @@ public class TopologiesApi {
             throw new ApiException("Missing the required parameter 'topotaguuid' when calling ttms100TopologyTagObjectsByTopotaguuidGet(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = ttms100TopologyTagObjectsByTopotaguuidGetCall(topotaguuid, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -686,11 +671,12 @@ public class TopologiesApi {
      */
     public com.squareup.okhttp.Call ttms100TopologyTagPostCall(Ttms100TopologyTagRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
-        
+
         // create path and map variables
         String localVarPath = "/ttms/1.0.0/topology_tag";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -721,20 +707,16 @@ public class TopologiesApi {
         }
 
         String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call ttms100TopologyTagPostValidateBeforeCall(Ttms100TopologyTagRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        
+
         com.squareup.okhttp.Call call = ttms100TopologyTagPostCall(body, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**

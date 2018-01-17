@@ -4,196 +4,16 @@ All URIs are relative to *https://penapi.pacnetconnect.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**100InventoryEndpointByEndpointuuidGet**](EndpointsApi.md#100InventoryEndpointByEndpointuuidGet) | **GET** /1.0.0/inventory/endpoint/{endpointuuid} | Get information about the specified endpoint
-[**100InventoryEndpointsCustomeruuidByCustomeruuidGet**](EndpointsApi.md#100InventoryEndpointsCustomeruuidByCustomeruuidGet) | **GET** /1.0.0/inventory/endpoints/customeruuid/{customeruuid} | Get list of endpoints for a customer
-[**100InventoryRegularendpointPost**](EndpointsApi.md#100InventoryRegularendpointPost) | **POST** /1.0.0/inventory/regularendpoint | Create Physical (Port) Endpoint
-[**100InventoryVnfendpointPost**](EndpointsApi.md#100InventoryVnfendpointPost) | **POST** /1.0.0/inventory/vnfendpoint | Create VNF Endpoint
 [**eis100EndpointsAssignTopologyTagByEndpointuuidPost**](EndpointsApi.md#eis100EndpointsAssignTopologyTagByEndpointuuidPost) | **POST** /eis/1.0.0/endpoints/{endpointuuid}/assign_topology_tag | Assign a Topology Tag to an Endpoint
+[**inventoryEndpointByEndpointuuidGet**](EndpointsApi.md#inventoryEndpointByEndpointuuidGet) | **GET** /1.0.0/inventory/endpoint/{endpointuuid} | Get information about the specified endpoint
+[**inventoryEndpointsCustomeruuidByCustomeruuidGet**](EndpointsApi.md#inventoryEndpointsCustomeruuidByCustomeruuidGet) | **GET** /1.0.0/inventory/endpoints/customeruuid/{customeruuid} | Get list of endpoints for a customer
+[**inventoryRegularendpointPost**](EndpointsApi.md#inventoryRegularendpointPost) | **POST** /1.0.0/inventory/regularendpoint | Create Physical (Port) Endpoint
+[**inventoryVnfendpointPost**](EndpointsApi.md#inventoryVnfendpointPost) | **POST** /1.0.0/inventory/vnfendpoint | Create VNF Endpoint
 
-
-<a name="100InventoryEndpointByEndpointuuidGet"></a>
-# **100InventoryEndpointByEndpointuuidGet**
-> Model100InventoryEndpointResponse 100InventoryEndpointByEndpointuuidGet(endpointuuid)
-
-Get information about the specified endpoint
-
-Get information about the specified endpoint
-
-### Example
-```java
-// Import classes:
-//import invalidPackageName.ApiException;
-//import TelstraTPN.EndpointsApi;
-
-
-EndpointsApi apiInstance = new EndpointsApi();
-String endpointuuid = "endpointuuid_example"; // String | Unique identifier representing a specific endpoint
-try {
-    Model100InventoryEndpointResponse result = apiInstance.100InventoryEndpointByEndpointuuidGet(endpointuuid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling EndpointsApi#100InventoryEndpointByEndpointuuidGet");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **endpointuuid** | **String**| Unique identifier representing a specific endpoint |
-
-### Return type
-
-[**Model100InventoryEndpointResponse**](Model100InventoryEndpointResponse.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-<a name="100InventoryEndpointsCustomeruuidByCustomeruuidGet"></a>
-# **100InventoryEndpointsCustomeruuidByCustomeruuidGet**
-> Model100InventoryEndpointsCustomeruuidResponse 100InventoryEndpointsCustomeruuidByCustomeruuidGet(customeruuid)
-
-Get list of endpoints for a customer
-
-Get list of endpoints for a customer
-
-### Example
-```java
-// Import classes:
-//import invalidPackageName.ApiException;
-//import TelstraTPN.EndpointsApi;
-
-
-EndpointsApi apiInstance = new EndpointsApi();
-String customeruuid = "customeruuid_example"; // String | Unique identifier representing a specific customer
-try {
-    Model100InventoryEndpointsCustomeruuidResponse result = apiInstance.100InventoryEndpointsCustomeruuidByCustomeruuidGet(customeruuid);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling EndpointsApi#100InventoryEndpointsCustomeruuidByCustomeruuidGet");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **customeruuid** | **String**| Unique identifier representing a specific customer |
-
-### Return type
-
-[**Model100InventoryEndpointsCustomeruuidResponse**](Model100InventoryEndpointsCustomeruuidResponse.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-<a name="100InventoryRegularendpointPost"></a>
-# **100InventoryRegularendpointPost**
-> Model100InventoryRegularendpointResponse 100InventoryRegularendpointPost(body)
-
-Create Physical (Port) Endpoint
-
-Create Physical (Port) Endpoint
-
-### Example
-```java
-// Import classes:
-//import invalidPackageName.ApiException;
-//import TelstraTPN.EndpointsApi;
-
-
-EndpointsApi apiInstance = new EndpointsApi();
-Model100InventoryRegularendpointRequest body = new Model100InventoryRegularendpointRequest(); // Model100InventoryRegularendpointRequest | 
-try {
-    Model100InventoryRegularendpointResponse result = apiInstance.100InventoryRegularendpointPost(body);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling EndpointsApi#100InventoryRegularendpointPost");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**Model100InventoryRegularendpointRequest**](Model100InventoryRegularendpointRequest.md)|  | [optional]
-
-### Return type
-
-[**Model100InventoryRegularendpointResponse**](Model100InventoryRegularendpointResponse.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-<a name="100InventoryVnfendpointPost"></a>
-# **100InventoryVnfendpointPost**
-> Model100InventoryVnfendpointResponse 100InventoryVnfendpointPost(body)
-
-Create VNF Endpoint
-
-Create VNF Endpoint
-
-### Example
-```java
-// Import classes:
-//import invalidPackageName.ApiException;
-//import TelstraTPN.EndpointsApi;
-
-
-EndpointsApi apiInstance = new EndpointsApi();
-Model100InventoryVnfendpointRequest body = new Model100InventoryVnfendpointRequest(); // Model100InventoryVnfendpointRequest | 
-try {
-    Model100InventoryVnfendpointResponse result = apiInstance.100InventoryVnfendpointPost(body);
-    System.out.println(result);
-} catch (ApiException e) {
-    System.err.println("Exception when calling EndpointsApi#100InventoryVnfendpointPost");
-    e.printStackTrace();
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**Model100InventoryVnfendpointRequest**](Model100InventoryVnfendpointRequest.md)|  | [optional]
-
-### Return type
-
-[**Model100InventoryVnfendpointResponse**](Model100InventoryVnfendpointResponse.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
 
 <a name="eis100EndpointsAssignTopologyTagByEndpointuuidPost"></a>
 # **eis100EndpointsAssignTopologyTagByEndpointuuidPost**
-> SuccessFragment eis100EndpointsAssignTopologyTagByEndpointuuidPost(endpointuuid, body)
+> List&lt;SuccessFragment&gt; eis100EndpointsAssignTopologyTagByEndpointuuidPost(endpointuuid, body)
 
 Assign a Topology Tag to an Endpoint
 
@@ -202,15 +22,23 @@ Assign a Topology Tag to an Endpoint
 ### Example
 ```java
 // Import classes:
+//import invalidPackageName.ApiClient;
 //import invalidPackageName.ApiException;
+//import invalidPackageName.Configuration;
+//import invalidPackageName.auth.*;
 //import TelstraTPN.EndpointsApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: auth
+OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
+auth.setAccessToken("YOUR ACCESS TOKEN");
 
 EndpointsApi apiInstance = new EndpointsApi();
 String endpointuuid = "endpointuuid_example"; // String | Unique identifier representing a specific endpoint
 Eis100EndpointsAssignTopologyTagRequest body = new Eis100EndpointsAssignTopologyTagRequest(); // Eis100EndpointsAssignTopologyTagRequest | 
 try {
-    SuccessFragment result = apiInstance.eis100EndpointsAssignTopologyTagByEndpointuuidPost(endpointuuid, body);
+    List<SuccessFragment> result = apiInstance.eis100EndpointsAssignTopologyTagByEndpointuuidPost(endpointuuid, body);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling EndpointsApi#eis100EndpointsAssignTopologyTagByEndpointuuidPost");
@@ -227,11 +55,223 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SuccessFragment**](SuccessFragment.md)
+[**List&lt;SuccessFragment&gt;**](SuccessFragment.md)
 
 ### Authorization
 
-No authorization required
+[auth](../README.md#auth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="inventoryEndpointByEndpointuuidGet"></a>
+# **inventoryEndpointByEndpointuuidGet**
+> InventoryEndpointResponse inventoryEndpointByEndpointuuidGet(endpointuuid)
+
+Get information about the specified endpoint
+
+Get information about the specified endpoint
+
+### Example
+```java
+// Import classes:
+//import invalidPackageName.ApiClient;
+//import invalidPackageName.ApiException;
+//import invalidPackageName.Configuration;
+//import invalidPackageName.auth.*;
+//import TelstraTPN.EndpointsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: auth
+OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
+auth.setAccessToken("YOUR ACCESS TOKEN");
+
+EndpointsApi apiInstance = new EndpointsApi();
+String endpointuuid = "endpointuuid_example"; // String | Unique identifier representing a specific endpoint
+try {
+    InventoryEndpointResponse result = apiInstance.inventoryEndpointByEndpointuuidGet(endpointuuid);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling EndpointsApi#inventoryEndpointByEndpointuuidGet");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **endpointuuid** | **String**| Unique identifier representing a specific endpoint |
+
+### Return type
+
+[**InventoryEndpointResponse**](InventoryEndpointResponse.md)
+
+### Authorization
+
+[auth](../README.md#auth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="inventoryEndpointsCustomeruuidByCustomeruuidGet"></a>
+# **inventoryEndpointsCustomeruuidByCustomeruuidGet**
+> InventoryEndpointsCustomeruuidResponse inventoryEndpointsCustomeruuidByCustomeruuidGet(customeruuid)
+
+Get list of endpoints for a customer
+
+Get list of endpoints for a customer
+
+### Example
+```java
+// Import classes:
+//import invalidPackageName.ApiClient;
+//import invalidPackageName.ApiException;
+//import invalidPackageName.Configuration;
+//import invalidPackageName.auth.*;
+//import TelstraTPN.EndpointsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: auth
+OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
+auth.setAccessToken("YOUR ACCESS TOKEN");
+
+EndpointsApi apiInstance = new EndpointsApi();
+String customeruuid = "customeruuid_example"; // String | Unique identifier representing a specific customer
+try {
+    InventoryEndpointsCustomeruuidResponse result = apiInstance.inventoryEndpointsCustomeruuidByCustomeruuidGet(customeruuid);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling EndpointsApi#inventoryEndpointsCustomeruuidByCustomeruuidGet");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **customeruuid** | **String**| Unique identifier representing a specific customer |
+
+### Return type
+
+[**InventoryEndpointsCustomeruuidResponse**](InventoryEndpointsCustomeruuidResponse.md)
+
+### Authorization
+
+[auth](../README.md#auth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="inventoryRegularendpointPost"></a>
+# **inventoryRegularendpointPost**
+> List&lt;InventoryRegularendpointResponse&gt; inventoryRegularendpointPost(body)
+
+Create Physical (Port) Endpoint
+
+Create Physical (Port) Endpoint
+
+### Example
+```java
+// Import classes:
+//import invalidPackageName.ApiClient;
+//import invalidPackageName.ApiException;
+//import invalidPackageName.Configuration;
+//import invalidPackageName.auth.*;
+//import TelstraTPN.EndpointsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: auth
+OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
+auth.setAccessToken("YOUR ACCESS TOKEN");
+
+EndpointsApi apiInstance = new EndpointsApi();
+InventoryRegularendpointRequest body = new InventoryRegularendpointRequest(); // InventoryRegularendpointRequest | 
+try {
+    List<InventoryRegularendpointResponse> result = apiInstance.inventoryRegularendpointPost(body);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling EndpointsApi#inventoryRegularendpointPost");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**InventoryRegularendpointRequest**](InventoryRegularendpointRequest.md)|  | [optional]
+
+### Return type
+
+[**List&lt;InventoryRegularendpointResponse&gt;**](InventoryRegularendpointResponse.md)
+
+### Authorization
+
+[auth](../README.md#auth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="inventoryVnfendpointPost"></a>
+# **inventoryVnfendpointPost**
+> List&lt;InventoryVnfendpointResponse&gt; inventoryVnfendpointPost(body)
+
+Create VNF Endpoint
+
+Create VNF Endpoint
+
+### Example
+```java
+// Import classes:
+//import invalidPackageName.ApiClient;
+//import invalidPackageName.ApiException;
+//import invalidPackageName.Configuration;
+//import invalidPackageName.auth.*;
+//import TelstraTPN.EndpointsApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: auth
+OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
+auth.setAccessToken("YOUR ACCESS TOKEN");
+
+EndpointsApi apiInstance = new EndpointsApi();
+InventoryVnfendpointRequest body = new InventoryVnfendpointRequest(); // InventoryVnfendpointRequest | 
+try {
+    List<InventoryVnfendpointResponse> result = apiInstance.inventoryVnfendpointPost(body);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling EndpointsApi#inventoryVnfendpointPost");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**InventoryVnfendpointRequest**](InventoryVnfendpointRequest.md)|  | [optional]
+
+### Return type
+
+[**List&lt;InventoryVnfendpointResponse&gt;**](InventoryVnfendpointResponse.md)
+
+### Authorization
+
+[auth](../README.md#auth)
 
 ### HTTP request headers
 

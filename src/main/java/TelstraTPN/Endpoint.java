@@ -28,7 +28,7 @@ import java.util.List;
 /**
  * Endpoint
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-12-19T14:16:29.049+11:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-01-17T21:20:10.329+11:00")
 public class Endpoint {
   @SerializedName("endpoint_uuid")
   private String endpointUuid = null;
@@ -121,6 +121,6 @@ public class Endpoint {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

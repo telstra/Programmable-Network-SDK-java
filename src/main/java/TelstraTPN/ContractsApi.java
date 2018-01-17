@@ -27,11 +27,11 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import TelstraTPN.Model100InventoryLinksContractRequest;
-import TelstraTPN.Model100InventoryLinksContractRequest37;
-import TelstraTPN.Model100InventoryLinksContractResponse;
-import TelstraTPN.Model100InventoryLinksContractResponse33;
-import TelstraTPN.Model100InventoryLinksContractResponse38;
+import TelstraTPN.InventoryLinksContractRequest;
+import TelstraTPN.InventoryLinksContractRequest37;
+import TelstraTPN.InventoryLinksContractResponse;
+import TelstraTPN.InventoryLinksContractResponse33;
+import TelstraTPN.InventoryLinksContractResponse38;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -59,7 +59,7 @@ public class ContractsApi {
     }
 
     /**
-     * Build call for 100InventoryLinksContractByLinkidAndContractidGet
+     * Build call for inventoryLinksContractByLinkidAndContractidGet
      * @param linkid Unique identifier representing a specific link (required)
      * @param contractid Unique identifier representing a specific contract (required)
      * @param progressListener Progress listener
@@ -67,15 +67,16 @@ public class ContractsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call 100InventoryLinksContractByLinkidAndContractidGetCall(String linkid, String contractid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call inventoryLinksContractByLinkidAndContractidGetCall(String linkid, String contractid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/1.0.0/inventory/links/{linkid}/contract/{contractid}"
             .replaceAll("\\{" + "linkid" + "\\}", apiClient.escapeString(linkid.toString()))
             .replaceAll("\\{" + "contractid" + "\\}", apiClient.escapeString(contractid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -105,31 +106,27 @@ public class ContractsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        String[] localVarAuthNames = new String[] { "auth" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call 100InventoryLinksContractByLinkidAndContractidGetValidateBeforeCall(String linkid, String contractid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call inventoryLinksContractByLinkidAndContractidGetValidateBeforeCall(String linkid, String contractid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'linkid' is set
         if (linkid == null) {
-            throw new ApiException("Missing the required parameter 'linkid' when calling 100InventoryLinksContractByLinkidAndContractidGet(Async)");
+            throw new ApiException("Missing the required parameter 'linkid' when calling inventoryLinksContractByLinkidAndContractidGet(Async)");
         }
         
         // verify the required parameter 'contractid' is set
         if (contractid == null) {
-            throw new ApiException("Missing the required parameter 'contractid' when calling 100InventoryLinksContractByLinkidAndContractidGet(Async)");
+            throw new ApiException("Missing the required parameter 'contractid' when calling inventoryLinksContractByLinkidAndContractidGet(Async)");
         }
         
-        
-        com.squareup.okhttp.Call call = 100InventoryLinksContractByLinkidAndContractidGetCall(linkid, contractid, progressListener, progressRequestListener);
+
+        com.squareup.okhttp.Call call = inventoryLinksContractByLinkidAndContractidGetCall(linkid, contractid, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -137,11 +134,11 @@ public class ContractsApi {
      * Get active Contract by ContractID
      * @param linkid Unique identifier representing a specific link (required)
      * @param contractid Unique identifier representing a specific contract (required)
-     * @return Model100InventoryLinksContractResponse
+     * @return InventoryLinksContractResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Model100InventoryLinksContractResponse 100InventoryLinksContractByLinkidAndContractidGet(String linkid, String contractid) throws ApiException {
-        ApiResponse<Model100InventoryLinksContractResponse> resp = 100InventoryLinksContractByLinkidAndContractidGetWithHttpInfo(linkid, contractid);
+    public InventoryLinksContractResponse inventoryLinksContractByLinkidAndContractidGet(String linkid, String contractid) throws ApiException {
+        ApiResponse<InventoryLinksContractResponse> resp = inventoryLinksContractByLinkidAndContractidGetWithHttpInfo(linkid, contractid);
         return resp.getData();
     }
 
@@ -150,12 +147,12 @@ public class ContractsApi {
      * Get active Contract by ContractID
      * @param linkid Unique identifier representing a specific link (required)
      * @param contractid Unique identifier representing a specific contract (required)
-     * @return ApiResponse&lt;Model100InventoryLinksContractResponse&gt;
+     * @return ApiResponse&lt;InventoryLinksContractResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Model100InventoryLinksContractResponse> 100InventoryLinksContractByLinkidAndContractidGetWithHttpInfo(String linkid, String contractid) throws ApiException {
-        com.squareup.okhttp.Call call = 100InventoryLinksContractByLinkidAndContractidGetValidateBeforeCall(linkid, contractid, null, null);
-        Type localVarReturnType = new TypeToken<Model100InventoryLinksContractResponse>(){}.getType();
+    public ApiResponse<InventoryLinksContractResponse> inventoryLinksContractByLinkidAndContractidGetWithHttpInfo(String linkid, String contractid) throws ApiException {
+        com.squareup.okhttp.Call call = inventoryLinksContractByLinkidAndContractidGetValidateBeforeCall(linkid, contractid, null, null);
+        Type localVarReturnType = new TypeToken<InventoryLinksContractResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -168,7 +165,7 @@ public class ContractsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call 100InventoryLinksContractByLinkidAndContractidGetAsync(String linkid, String contractid, final ApiCallback<Model100InventoryLinksContractResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call inventoryLinksContractByLinkidAndContractidGetAsync(String linkid, String contractid, final ApiCallback<InventoryLinksContractResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -189,13 +186,13 @@ public class ContractsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = 100InventoryLinksContractByLinkidAndContractidGetValidateBeforeCall(linkid, contractid, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Model100InventoryLinksContractResponse>(){}.getType();
+        com.squareup.okhttp.Call call = inventoryLinksContractByLinkidAndContractidGetValidateBeforeCall(linkid, contractid, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<InventoryLinksContractResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
-     * Build call for 100InventoryLinksContractByLinkidAndContractidPut
+     * Build call for inventoryLinksContractByLinkidAndContractidPut
      * @param linkid Unique identifier representing a specific link (required)
      * @param contractid Unique identifier representing a specific contract (required)
      * @param body  (optional)
@@ -204,15 +201,16 @@ public class ContractsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call 100InventoryLinksContractByLinkidAndContractidPutCall(String linkid, String contractid, Model100InventoryLinksContractRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call inventoryLinksContractByLinkidAndContractidPutCall(String linkid, String contractid, InventoryLinksContractRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
-        
+
         // create path and map variables
         String localVarPath = "/1.0.0/inventory/links/{linkid}/contract/{contractid}"
             .replaceAll("\\{" + "linkid" + "\\}", apiClient.escapeString(linkid.toString()))
             .replaceAll("\\{" + "contractid" + "\\}", apiClient.escapeString(contractid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -242,31 +240,27 @@ public class ContractsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        String[] localVarAuthNames = new String[] { "auth" };
+        return apiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call 100InventoryLinksContractByLinkidAndContractidPutValidateBeforeCall(String linkid, String contractid, Model100InventoryLinksContractRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call inventoryLinksContractByLinkidAndContractidPutValidateBeforeCall(String linkid, String contractid, InventoryLinksContractRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'linkid' is set
         if (linkid == null) {
-            throw new ApiException("Missing the required parameter 'linkid' when calling 100InventoryLinksContractByLinkidAndContractidPut(Async)");
+            throw new ApiException("Missing the required parameter 'linkid' when calling inventoryLinksContractByLinkidAndContractidPut(Async)");
         }
         
         // verify the required parameter 'contractid' is set
         if (contractid == null) {
-            throw new ApiException("Missing the required parameter 'contractid' when calling 100InventoryLinksContractByLinkidAndContractidPut(Async)");
+            throw new ApiException("Missing the required parameter 'contractid' when calling inventoryLinksContractByLinkidAndContractidPut(Async)");
         }
         
-        
-        com.squareup.okhttp.Call call = 100InventoryLinksContractByLinkidAndContractidPutCall(linkid, contractid, body, progressListener, progressRequestListener);
+
+        com.squareup.okhttp.Call call = inventoryLinksContractByLinkidAndContractidPutCall(linkid, contractid, body, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -275,11 +269,11 @@ public class ContractsApi {
      * @param linkid Unique identifier representing a specific link (required)
      * @param contractid Unique identifier representing a specific contract (required)
      * @param body  (optional)
-     * @return Model100InventoryLinksContractResponse33
+     * @return InventoryLinksContractResponse33
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Model100InventoryLinksContractResponse33 100InventoryLinksContractByLinkidAndContractidPut(String linkid, String contractid, Model100InventoryLinksContractRequest body) throws ApiException {
-        ApiResponse<Model100InventoryLinksContractResponse33> resp = 100InventoryLinksContractByLinkidAndContractidPutWithHttpInfo(linkid, contractid, body);
+    public InventoryLinksContractResponse33 inventoryLinksContractByLinkidAndContractidPut(String linkid, String contractid, InventoryLinksContractRequest body) throws ApiException {
+        ApiResponse<InventoryLinksContractResponse33> resp = inventoryLinksContractByLinkidAndContractidPutWithHttpInfo(linkid, contractid, body);
         return resp.getData();
     }
 
@@ -289,12 +283,12 @@ public class ContractsApi {
      * @param linkid Unique identifier representing a specific link (required)
      * @param contractid Unique identifier representing a specific contract (required)
      * @param body  (optional)
-     * @return ApiResponse&lt;Model100InventoryLinksContractResponse33&gt;
+     * @return ApiResponse&lt;InventoryLinksContractResponse33&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Model100InventoryLinksContractResponse33> 100InventoryLinksContractByLinkidAndContractidPutWithHttpInfo(String linkid, String contractid, Model100InventoryLinksContractRequest body) throws ApiException {
-        com.squareup.okhttp.Call call = 100InventoryLinksContractByLinkidAndContractidPutValidateBeforeCall(linkid, contractid, body, null, null);
-        Type localVarReturnType = new TypeToken<Model100InventoryLinksContractResponse33>(){}.getType();
+    public ApiResponse<InventoryLinksContractResponse33> inventoryLinksContractByLinkidAndContractidPutWithHttpInfo(String linkid, String contractid, InventoryLinksContractRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = inventoryLinksContractByLinkidAndContractidPutValidateBeforeCall(linkid, contractid, body, null, null);
+        Type localVarReturnType = new TypeToken<InventoryLinksContractResponse33>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -308,7 +302,7 @@ public class ContractsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call 100InventoryLinksContractByLinkidAndContractidPutAsync(String linkid, String contractid, Model100InventoryLinksContractRequest body, final ApiCallback<Model100InventoryLinksContractResponse33> callback) throws ApiException {
+    public com.squareup.okhttp.Call inventoryLinksContractByLinkidAndContractidPutAsync(String linkid, String contractid, InventoryLinksContractRequest body, final ApiCallback<InventoryLinksContractResponse33> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -329,13 +323,13 @@ public class ContractsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = 100InventoryLinksContractByLinkidAndContractidPutValidateBeforeCall(linkid, contractid, body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Model100InventoryLinksContractResponse33>(){}.getType();
+        com.squareup.okhttp.Call call = inventoryLinksContractByLinkidAndContractidPutValidateBeforeCall(linkid, contractid, body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<InventoryLinksContractResponse33>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
-     * Build call for 100InventoryLinksContractByLinkidPost
+     * Build call for inventoryLinksContractByLinkidPost
      * @param linkid Unique identifier representing a specific link (required)
      * @param body  (optional)
      * @param progressListener Progress listener
@@ -343,14 +337,15 @@ public class ContractsApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call 100InventoryLinksContractByLinkidPostCall(String linkid, Model100InventoryLinksContractRequest37 body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call inventoryLinksContractByLinkidPostCall(String linkid, InventoryLinksContractRequest37 body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
-        
+
         // create path and map variables
         String localVarPath = "/1.0.0/inventory/links/{linkid}/contract"
             .replaceAll("\\{" + "linkid" + "\\}", apiClient.escapeString(linkid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -380,26 +375,22 @@ public class ContractsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        String[] localVarAuthNames = new String[] { "auth" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call 100InventoryLinksContractByLinkidPostValidateBeforeCall(String linkid, Model100InventoryLinksContractRequest37 body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call inventoryLinksContractByLinkidPostValidateBeforeCall(String linkid, InventoryLinksContractRequest37 body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'linkid' is set
         if (linkid == null) {
-            throw new ApiException("Missing the required parameter 'linkid' when calling 100InventoryLinksContractByLinkidPost(Async)");
+            throw new ApiException("Missing the required parameter 'linkid' when calling inventoryLinksContractByLinkidPost(Async)");
         }
         
-        
-        com.squareup.okhttp.Call call = 100InventoryLinksContractByLinkidPostCall(linkid, body, progressListener, progressRequestListener);
+
+        com.squareup.okhttp.Call call = inventoryLinksContractByLinkidPostCall(linkid, body, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -407,11 +398,11 @@ public class ContractsApi {
      * Create new Contract on specified link
      * @param linkid Unique identifier representing a specific link (required)
      * @param body  (optional)
-     * @return Model100InventoryLinksContractResponse38
+     * @return List&lt;InventoryLinksContractResponse38&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Model100InventoryLinksContractResponse38 100InventoryLinksContractByLinkidPost(String linkid, Model100InventoryLinksContractRequest37 body) throws ApiException {
-        ApiResponse<Model100InventoryLinksContractResponse38> resp = 100InventoryLinksContractByLinkidPostWithHttpInfo(linkid, body);
+    public List<InventoryLinksContractResponse38> inventoryLinksContractByLinkidPost(String linkid, InventoryLinksContractRequest37 body) throws ApiException {
+        ApiResponse<List<InventoryLinksContractResponse38>> resp = inventoryLinksContractByLinkidPostWithHttpInfo(linkid, body);
         return resp.getData();
     }
 
@@ -420,12 +411,12 @@ public class ContractsApi {
      * Create new Contract on specified link
      * @param linkid Unique identifier representing a specific link (required)
      * @param body  (optional)
-     * @return ApiResponse&lt;Model100InventoryLinksContractResponse38&gt;
+     * @return ApiResponse&lt;List&lt;InventoryLinksContractResponse38&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Model100InventoryLinksContractResponse38> 100InventoryLinksContractByLinkidPostWithHttpInfo(String linkid, Model100InventoryLinksContractRequest37 body) throws ApiException {
-        com.squareup.okhttp.Call call = 100InventoryLinksContractByLinkidPostValidateBeforeCall(linkid, body, null, null);
-        Type localVarReturnType = new TypeToken<Model100InventoryLinksContractResponse38>(){}.getType();
+    public ApiResponse<List<InventoryLinksContractResponse38>> inventoryLinksContractByLinkidPostWithHttpInfo(String linkid, InventoryLinksContractRequest37 body) throws ApiException {
+        com.squareup.okhttp.Call call = inventoryLinksContractByLinkidPostValidateBeforeCall(linkid, body, null, null);
+        Type localVarReturnType = new TypeToken<List<InventoryLinksContractResponse38>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -438,7 +429,7 @@ public class ContractsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call 100InventoryLinksContractByLinkidPostAsync(String linkid, Model100InventoryLinksContractRequest37 body, final ApiCallback<Model100InventoryLinksContractResponse38> callback) throws ApiException {
+    public com.squareup.okhttp.Call inventoryLinksContractByLinkidPostAsync(String linkid, InventoryLinksContractRequest37 body, final ApiCallback<List<InventoryLinksContractResponse38>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -459,8 +450,8 @@ public class ContractsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = 100InventoryLinksContractByLinkidPostValidateBeforeCall(linkid, body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Model100InventoryLinksContractResponse38>(){}.getType();
+        com.squareup.okhttp.Call call = inventoryLinksContractByLinkidPostValidateBeforeCall(linkid, body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<List<InventoryLinksContractResponse38>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

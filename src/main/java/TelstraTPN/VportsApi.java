@@ -28,10 +28,10 @@ import java.io.IOException;
 
 
 import TelstraTPN.EndpointPort;
-import TelstraTPN.Model100InventoryRegularvportRequest;
-import TelstraTPN.Model100InventoryRegularvportResponse;
-import TelstraTPN.Model100InventoryVnfVportRequest;
-import TelstraTPN.Model100InventoryVnfVportResponse;
+import TelstraTPN.InventoryRegularvportRequest;
+import TelstraTPN.InventoryRegularvportResponse;
+import TelstraTPN.InventoryVnfVportRequest;
+import TelstraTPN.InventoryVnfVportResponse;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -59,20 +59,21 @@ public class VportsApi {
     }
 
     /**
-     * Build call for 100InventoryRegularvportPost
+     * Build call for inventoryRegularvportPost
      * @param body  (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call 100InventoryRegularvportPostCall(Model100InventoryRegularvportRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call inventoryRegularvportPostCall(InventoryRegularvportRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
-        
+
         // create path and map variables
         String localVarPath = "/1.0.0/inventory/regularvport";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -102,32 +103,28 @@ public class VportsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        String[] localVarAuthNames = new String[] { "auth" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call 100InventoryRegularvportPostValidateBeforeCall(Model100InventoryRegularvportRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call inventoryRegularvportPostValidateBeforeCall(InventoryRegularvportRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        
-        com.squareup.okhttp.Call call = 100InventoryRegularvportPostCall(body, progressListener, progressRequestListener);
+
+        com.squareup.okhttp.Call call = inventoryRegularvportPostCall(body, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Create VPort for physical endpoint
      * Create VPort representing a VLAN on a Physical Ethernet Port
      * @param body  (optional)
-     * @return Model100InventoryRegularvportResponse
+     * @return InventoryRegularvportResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Model100InventoryRegularvportResponse 100InventoryRegularvportPost(Model100InventoryRegularvportRequest body) throws ApiException {
-        ApiResponse<Model100InventoryRegularvportResponse> resp = 100InventoryRegularvportPostWithHttpInfo(body);
+    public InventoryRegularvportResponse inventoryRegularvportPost(InventoryRegularvportRequest body) throws ApiException {
+        ApiResponse<InventoryRegularvportResponse> resp = inventoryRegularvportPostWithHttpInfo(body);
         return resp.getData();
     }
 
@@ -135,12 +132,12 @@ public class VportsApi {
      * Create VPort for physical endpoint
      * Create VPort representing a VLAN on a Physical Ethernet Port
      * @param body  (optional)
-     * @return ApiResponse&lt;Model100InventoryRegularvportResponse&gt;
+     * @return ApiResponse&lt;InventoryRegularvportResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Model100InventoryRegularvportResponse> 100InventoryRegularvportPostWithHttpInfo(Model100InventoryRegularvportRequest body) throws ApiException {
-        com.squareup.okhttp.Call call = 100InventoryRegularvportPostValidateBeforeCall(body, null, null);
-        Type localVarReturnType = new TypeToken<Model100InventoryRegularvportResponse>(){}.getType();
+    public ApiResponse<InventoryRegularvportResponse> inventoryRegularvportPostWithHttpInfo(InventoryRegularvportRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = inventoryRegularvportPostValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<InventoryRegularvportResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -152,7 +149,7 @@ public class VportsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call 100InventoryRegularvportPostAsync(Model100InventoryRegularvportRequest body, final ApiCallback<Model100InventoryRegularvportResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call inventoryRegularvportPostAsync(InventoryRegularvportRequest body, final ApiCallback<InventoryRegularvportResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -173,26 +170,27 @@ public class VportsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = 100InventoryRegularvportPostValidateBeforeCall(body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Model100InventoryRegularvportResponse>(){}.getType();
+        com.squareup.okhttp.Call call = inventoryRegularvportPostValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<InventoryRegularvportResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
-     * Build call for 100InventoryVnfVportPost
+     * Build call for inventoryVnfVportPost
      * @param body  (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call 100InventoryVnfVportPostCall(Model100InventoryVnfVportRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call inventoryVnfVportPostCall(InventoryVnfVportRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
-        
+
         // create path and map variables
         String localVarPath = "/1.0.0/inventory/vnf/vport";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -222,32 +220,28 @@ public class VportsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        String[] localVarAuthNames = new String[] { "auth" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call 100InventoryVnfVportPostValidateBeforeCall(Model100InventoryVnfVportRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call inventoryVnfVportPostValidateBeforeCall(InventoryVnfVportRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        
-        com.squareup.okhttp.Call call = 100InventoryVnfVportPostCall(body, progressListener, progressRequestListener);
+
+        com.squareup.okhttp.Call call = inventoryVnfVportPostCall(body, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Create VNF VPort
      * Create VNF VPort
      * @param body  (optional)
-     * @return Model100InventoryVnfVportResponse
+     * @return InventoryVnfVportResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Model100InventoryVnfVportResponse 100InventoryVnfVportPost(Model100InventoryVnfVportRequest body) throws ApiException {
-        ApiResponse<Model100InventoryVnfVportResponse> resp = 100InventoryVnfVportPostWithHttpInfo(body);
+    public InventoryVnfVportResponse inventoryVnfVportPost(InventoryVnfVportRequest body) throws ApiException {
+        ApiResponse<InventoryVnfVportResponse> resp = inventoryVnfVportPostWithHttpInfo(body);
         return resp.getData();
     }
 
@@ -255,12 +249,12 @@ public class VportsApi {
      * Create VNF VPort
      * Create VNF VPort
      * @param body  (optional)
-     * @return ApiResponse&lt;Model100InventoryVnfVportResponse&gt;
+     * @return ApiResponse&lt;InventoryVnfVportResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Model100InventoryVnfVportResponse> 100InventoryVnfVportPostWithHttpInfo(Model100InventoryVnfVportRequest body) throws ApiException {
-        com.squareup.okhttp.Call call = 100InventoryVnfVportPostValidateBeforeCall(body, null, null);
-        Type localVarReturnType = new TypeToken<Model100InventoryVnfVportResponse>(){}.getType();
+    public ApiResponse<InventoryVnfVportResponse> inventoryVnfVportPostWithHttpInfo(InventoryVnfVportRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = inventoryVnfVportPostValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<InventoryVnfVportResponse>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -272,7 +266,7 @@ public class VportsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call 100InventoryVnfVportPostAsync(Model100InventoryVnfVportRequest body, final ApiCallback<Model100InventoryVnfVportResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call inventoryVnfVportPostAsync(InventoryVnfVportRequest body, final ApiCallback<InventoryVnfVportResponse> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -293,27 +287,28 @@ public class VportsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = 100InventoryVnfVportPostValidateBeforeCall(body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Model100InventoryVnfVportResponse>(){}.getType();
+        com.squareup.okhttp.Call call = inventoryVnfVportPostValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<InventoryVnfVportResponse>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
-     * Build call for 100InventoryVportByVportuuidGet
+     * Build call for inventoryVportByVportuuidGet
      * @param vportuuid Unique identifier representing a specific virtual port (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call 100InventoryVportByVportuuidGetCall(String vportuuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call inventoryVportByVportuuidGetCall(String vportuuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/1.0.0/inventory/vport/{vportuuid}"
             .replaceAll("\\{" + "vportuuid" + "\\}", apiClient.escapeString(vportuuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -343,37 +338,33 @@ public class VportsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        String[] localVarAuthNames = new String[] { "auth" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call 100InventoryVportByVportuuidGetValidateBeforeCall(String vportuuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call inventoryVportByVportuuidGetValidateBeforeCall(String vportuuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'vportuuid' is set
         if (vportuuid == null) {
-            throw new ApiException("Missing the required parameter 'vportuuid' when calling 100InventoryVportByVportuuidGet(Async)");
+            throw new ApiException("Missing the required parameter 'vportuuid' when calling inventoryVportByVportuuidGet(Async)");
         }
         
-        
-        com.squareup.okhttp.Call call = 100InventoryVportByVportuuidGetCall(vportuuid, progressListener, progressRequestListener);
+
+        com.squareup.okhttp.Call call = inventoryVportByVportuuidGetCall(vportuuid, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Get information about the specified VPort
      * Get information about the specified VPort
      * @param vportuuid Unique identifier representing a specific virtual port (required)
-     * @return EndpointPort
+     * @return List&lt;EndpointPort&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public EndpointPort 100InventoryVportByVportuuidGet(String vportuuid) throws ApiException {
-        ApiResponse<EndpointPort> resp = 100InventoryVportByVportuuidGetWithHttpInfo(vportuuid);
+    public List<EndpointPort> inventoryVportByVportuuidGet(String vportuuid) throws ApiException {
+        ApiResponse<List<EndpointPort>> resp = inventoryVportByVportuuidGetWithHttpInfo(vportuuid);
         return resp.getData();
     }
 
@@ -381,12 +372,12 @@ public class VportsApi {
      * Get information about the specified VPort
      * Get information about the specified VPort
      * @param vportuuid Unique identifier representing a specific virtual port (required)
-     * @return ApiResponse&lt;EndpointPort&gt;
+     * @return ApiResponse&lt;List&lt;EndpointPort&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<EndpointPort> 100InventoryVportByVportuuidGetWithHttpInfo(String vportuuid) throws ApiException {
-        com.squareup.okhttp.Call call = 100InventoryVportByVportuuidGetValidateBeforeCall(vportuuid, null, null);
-        Type localVarReturnType = new TypeToken<EndpointPort>(){}.getType();
+    public ApiResponse<List<EndpointPort>> inventoryVportByVportuuidGetWithHttpInfo(String vportuuid) throws ApiException {
+        com.squareup.okhttp.Call call = inventoryVportByVportuuidGetValidateBeforeCall(vportuuid, null, null);
+        Type localVarReturnType = new TypeToken<List<EndpointPort>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -398,7 +389,7 @@ public class VportsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call 100InventoryVportByVportuuidGetAsync(String vportuuid, final ApiCallback<EndpointPort> callback) throws ApiException {
+    public com.squareup.okhttp.Call inventoryVportByVportuuidGetAsync(String vportuuid, final ApiCallback<List<EndpointPort>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -419,8 +410,8 @@ public class VportsApi {
             };
         }
 
-        com.squareup.okhttp.Call call = 100InventoryVportByVportuuidGetValidateBeforeCall(vportuuid, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<EndpointPort>(){}.getType();
+        com.squareup.okhttp.Call call = inventoryVportByVportuuidGetValidateBeforeCall(vportuuid, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<List<EndpointPort>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

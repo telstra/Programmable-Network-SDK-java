@@ -4,13 +4,13 @@ All URIs are relative to *https://penapi.pacnetconnect.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**100AuthGeneratetokenPost**](AuthenticationApi.md#100AuthGeneratetokenPost) | **POST** /1.0.0/auth/generatetoken | Create an authentication token
-[**100AuthValidatetokenGet**](AuthenticationApi.md#100AuthValidatetokenGet) | **GET** /1.0.0/auth/validatetoken | Validate authentication token
+[**authGeneratetokenPost**](AuthenticationApi.md#authGeneratetokenPost) | **POST** /1.0.0/auth/generatetoken | Create an authentication token
+[**authValidatetokenGet**](AuthenticationApi.md#authValidatetokenGet) | **GET** /1.0.0/auth/validatetoken | Validate authentication token
 
 
-<a name="100AuthGeneratetokenPost"></a>
-# **100AuthGeneratetokenPost**
-> Model100AuthGeneratetokenResponse 100AuthGeneratetokenPost(grantType, username, password)
+<a name="authGeneratetokenPost"></a>
+# **authGeneratetokenPost**
+> AuthGeneratetokenResponse authGeneratetokenPost(grantType, username, password)
 
 Create an authentication token
 
@@ -28,10 +28,10 @@ String grantType = "grantType_example"; // String |
 String username = "username_example"; // String | 
 String password = "password_example"; // String | 
 try {
-    Model100AuthGeneratetokenResponse result = apiInstance.100AuthGeneratetokenPost(grantType, username, password);
+    AuthGeneratetokenResponse result = apiInstance.authGeneratetokenPost(grantType, username, password);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling AuthenticationApi#100AuthGeneratetokenPost");
+    System.err.println("Exception when calling AuthenticationApi#authGeneratetokenPost");
     e.printStackTrace();
 }
 ```
@@ -46,7 +46,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Model100AuthGeneratetokenResponse**](Model100AuthGeneratetokenResponse.md)
+[**AuthGeneratetokenResponse**](AuthGeneratetokenResponse.md)
 
 ### Authorization
 
@@ -57,9 +57,9 @@ No authorization required
  - **Content-Type**: application/x-www-form-urlencoded
  - **Accept**: application/json
 
-<a name="100AuthValidatetokenGet"></a>
-# **100AuthValidatetokenGet**
-> Model100AuthValidatetokenResponse 100AuthValidatetokenGet()
+<a name="authValidatetokenGet"></a>
+# **authValidatetokenGet**
+> AuthValidatetokenResponse authValidatetokenGet()
 
 Validate authentication token
 
@@ -74,10 +74,10 @@ Validate the authentication token and get information about the user (roles, per
 
 AuthenticationApi apiInstance = new AuthenticationApi();
 try {
-    Model100AuthValidatetokenResponse result = apiInstance.100AuthValidatetokenGet();
+    AuthValidatetokenResponse result = apiInstance.authValidatetokenGet();
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling AuthenticationApi#100AuthValidatetokenGet");
+    System.err.println("Exception when calling AuthenticationApi#authValidatetokenGet");
     e.printStackTrace();
 }
 ```
@@ -87,7 +87,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**Model100AuthValidatetokenResponse**](Model100AuthValidatetokenResponse.md)
+[**AuthValidatetokenResponse**](AuthValidatetokenResponse.md)
 
 ### Authorization
 

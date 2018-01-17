@@ -1,4 +1,6 @@
-# Java API client for Telstra Programmable Network
+[![Build Status](https://travis-ci.org/telstra/Programmable-Network-SDK-java.svg?branch=master)](https://travis-ci.org/telstra/Programmable-Network-SDK-java)
+
+# Telstra Programmable Network
 
 ## Requirements
 

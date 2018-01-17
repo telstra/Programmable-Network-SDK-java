@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * Params34
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2017-12-19T14:16:29.049+11:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-01-17T21:20:10.329+11:00")
 public class Params34 {
   @SerializedName("duration")
   private Integer duration = null;
@@ -50,6 +50,7 @@ public class Params34 {
 
    /**
    * Duration of contract in minutes
+   * minimum: 3600
    * @return duration
   **/
   @ApiModelProperty(example = "3600", value = "Duration of contract in minutes")
@@ -180,6 +181,6 @@ public class Params34 {
     }
     return o.toString().replace("\n", "\n    ");
   }
-  
+
 }
 

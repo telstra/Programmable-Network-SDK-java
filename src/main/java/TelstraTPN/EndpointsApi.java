@@ -28,12 +28,12 @@ import java.io.IOException;
 
 
 import TelstraTPN.Eis100EndpointsAssignTopologyTagRequest;
-import TelstraTPN.Model100InventoryEndpointResponse;
-import TelstraTPN.Model100InventoryEndpointsCustomeruuidResponse;
-import TelstraTPN.Model100InventoryRegularendpointRequest;
-import TelstraTPN.Model100InventoryRegularendpointResponse;
-import TelstraTPN.Model100InventoryVnfendpointRequest;
-import TelstraTPN.Model100InventoryVnfendpointResponse;
+import TelstraTPN.InventoryEndpointResponse;
+import TelstraTPN.InventoryEndpointsCustomeruuidResponse;
+import TelstraTPN.InventoryRegularendpointRequest;
+import TelstraTPN.InventoryRegularendpointResponse;
+import TelstraTPN.InventoryVnfendpointRequest;
+import TelstraTPN.InventoryVnfendpointResponse;
 import TelstraTPN.SuccessFragment;
 
 import java.lang.reflect.Type;
@@ -62,498 +62,6 @@ public class EndpointsApi {
     }
 
     /**
-     * Build call for 100InventoryEndpointByEndpointuuidGet
-     * @param endpointuuid Unique identifier representing a specific endpoint (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call 100InventoryEndpointByEndpointuuidGetCall(String endpointuuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
-        
-        // create path and map variables
-        String localVarPath = "/1.0.0/inventory/endpoint/{endpointuuid}"
-            .replaceAll("\\{" + "endpointuuid" + "\\}", apiClient.escapeString(endpointuuid.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-    
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call 100InventoryEndpointByEndpointuuidGetValidateBeforeCall(String endpointuuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'endpointuuid' is set
-        if (endpointuuid == null) {
-            throw new ApiException("Missing the required parameter 'endpointuuid' when calling 100InventoryEndpointByEndpointuuidGet(Async)");
-        }
-        
-        
-        com.squareup.okhttp.Call call = 100InventoryEndpointByEndpointuuidGetCall(endpointuuid, progressListener, progressRequestListener);
-        return call;
-
-        
-        
-        
-        
-    }
-
-    /**
-     * Get information about the specified endpoint
-     * Get information about the specified endpoint
-     * @param endpointuuid Unique identifier representing a specific endpoint (required)
-     * @return Model100InventoryEndpointResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public Model100InventoryEndpointResponse 100InventoryEndpointByEndpointuuidGet(String endpointuuid) throws ApiException {
-        ApiResponse<Model100InventoryEndpointResponse> resp = 100InventoryEndpointByEndpointuuidGetWithHttpInfo(endpointuuid);
-        return resp.getData();
-    }
-
-    /**
-     * Get information about the specified endpoint
-     * Get information about the specified endpoint
-     * @param endpointuuid Unique identifier representing a specific endpoint (required)
-     * @return ApiResponse&lt;Model100InventoryEndpointResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<Model100InventoryEndpointResponse> 100InventoryEndpointByEndpointuuidGetWithHttpInfo(String endpointuuid) throws ApiException {
-        com.squareup.okhttp.Call call = 100InventoryEndpointByEndpointuuidGetValidateBeforeCall(endpointuuid, null, null);
-        Type localVarReturnType = new TypeToken<Model100InventoryEndpointResponse>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Get information about the specified endpoint (asynchronously)
-     * Get information about the specified endpoint
-     * @param endpointuuid Unique identifier representing a specific endpoint (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call 100InventoryEndpointByEndpointuuidGetAsync(String endpointuuid, final ApiCallback<Model100InventoryEndpointResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = 100InventoryEndpointByEndpointuuidGetValidateBeforeCall(endpointuuid, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Model100InventoryEndpointResponse>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for 100InventoryEndpointsCustomeruuidByCustomeruuidGet
-     * @param customeruuid Unique identifier representing a specific customer (required)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call 100InventoryEndpointsCustomeruuidByCustomeruuidGetCall(String customeruuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = null;
-        
-        // create path and map variables
-        String localVarPath = "/1.0.0/inventory/endpoints/customeruuid/{customeruuid}"
-            .replaceAll("\\{" + "customeruuid" + "\\}", apiClient.escapeString(customeruuid.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-    
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call 100InventoryEndpointsCustomeruuidByCustomeruuidGetValidateBeforeCall(String customeruuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        // verify the required parameter 'customeruuid' is set
-        if (customeruuid == null) {
-            throw new ApiException("Missing the required parameter 'customeruuid' when calling 100InventoryEndpointsCustomeruuidByCustomeruuidGet(Async)");
-        }
-        
-        
-        com.squareup.okhttp.Call call = 100InventoryEndpointsCustomeruuidByCustomeruuidGetCall(customeruuid, progressListener, progressRequestListener);
-        return call;
-
-        
-        
-        
-        
-    }
-
-    /**
-     * Get list of endpoints for a customer
-     * Get list of endpoints for a customer
-     * @param customeruuid Unique identifier representing a specific customer (required)
-     * @return Model100InventoryEndpointsCustomeruuidResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public Model100InventoryEndpointsCustomeruuidResponse 100InventoryEndpointsCustomeruuidByCustomeruuidGet(String customeruuid) throws ApiException {
-        ApiResponse<Model100InventoryEndpointsCustomeruuidResponse> resp = 100InventoryEndpointsCustomeruuidByCustomeruuidGetWithHttpInfo(customeruuid);
-        return resp.getData();
-    }
-
-    /**
-     * Get list of endpoints for a customer
-     * Get list of endpoints for a customer
-     * @param customeruuid Unique identifier representing a specific customer (required)
-     * @return ApiResponse&lt;Model100InventoryEndpointsCustomeruuidResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<Model100InventoryEndpointsCustomeruuidResponse> 100InventoryEndpointsCustomeruuidByCustomeruuidGetWithHttpInfo(String customeruuid) throws ApiException {
-        com.squareup.okhttp.Call call = 100InventoryEndpointsCustomeruuidByCustomeruuidGetValidateBeforeCall(customeruuid, null, null);
-        Type localVarReturnType = new TypeToken<Model100InventoryEndpointsCustomeruuidResponse>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Get list of endpoints for a customer (asynchronously)
-     * Get list of endpoints for a customer
-     * @param customeruuid Unique identifier representing a specific customer (required)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call 100InventoryEndpointsCustomeruuidByCustomeruuidGetAsync(String customeruuid, final ApiCallback<Model100InventoryEndpointsCustomeruuidResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = 100InventoryEndpointsCustomeruuidByCustomeruuidGetValidateBeforeCall(customeruuid, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Model100InventoryEndpointsCustomeruuidResponse>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for 100InventoryRegularendpointPost
-     * @param body  (optional)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call 100InventoryRegularendpointPostCall(Model100InventoryRegularendpointRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = body;
-        
-        // create path and map variables
-        String localVarPath = "/1.0.0/inventory/regularendpoint";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-    
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call 100InventoryRegularendpointPostValidateBeforeCall(Model100InventoryRegularendpointRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        
-        com.squareup.okhttp.Call call = 100InventoryRegularendpointPostCall(body, progressListener, progressRequestListener);
-        return call;
-
-        
-        
-        
-        
-    }
-
-    /**
-     * Create Physical (Port) Endpoint
-     * Create Physical (Port) Endpoint
-     * @param body  (optional)
-     * @return Model100InventoryRegularendpointResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public Model100InventoryRegularendpointResponse 100InventoryRegularendpointPost(Model100InventoryRegularendpointRequest body) throws ApiException {
-        ApiResponse<Model100InventoryRegularendpointResponse> resp = 100InventoryRegularendpointPostWithHttpInfo(body);
-        return resp.getData();
-    }
-
-    /**
-     * Create Physical (Port) Endpoint
-     * Create Physical (Port) Endpoint
-     * @param body  (optional)
-     * @return ApiResponse&lt;Model100InventoryRegularendpointResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<Model100InventoryRegularendpointResponse> 100InventoryRegularendpointPostWithHttpInfo(Model100InventoryRegularendpointRequest body) throws ApiException {
-        com.squareup.okhttp.Call call = 100InventoryRegularendpointPostValidateBeforeCall(body, null, null);
-        Type localVarReturnType = new TypeToken<Model100InventoryRegularendpointResponse>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Create Physical (Port) Endpoint (asynchronously)
-     * Create Physical (Port) Endpoint
-     * @param body  (optional)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call 100InventoryRegularendpointPostAsync(Model100InventoryRegularendpointRequest body, final ApiCallback<Model100InventoryRegularendpointResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = 100InventoryRegularendpointPostValidateBeforeCall(body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Model100InventoryRegularendpointResponse>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
-     * Build call for 100InventoryVnfendpointPost
-     * @param body  (optional)
-     * @param progressListener Progress listener
-     * @param progressRequestListener Progress request listener
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     */
-    public com.squareup.okhttp.Call 100InventoryVnfendpointPostCall(Model100InventoryVnfendpointRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        Object localVarPostBody = body;
-        
-        // create path and map variables
-        String localVarPath = "/1.0.0/inventory/vnfendpoint";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "application/json"
-        };
-        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
-
-        final String[] localVarContentTypes = {
-            "application/json"
-        };
-        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
-
-        if(progressListener != null) {
-            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
-                @Override
-                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
-                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
-                    return originalResponse.newBuilder()
-                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
-                    .build();
-                }
-            });
-        }
-
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
-    }
-    
-    @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call 100InventoryVnfendpointPostValidateBeforeCall(Model100InventoryVnfendpointRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
-        
-        
-        com.squareup.okhttp.Call call = 100InventoryVnfendpointPostCall(body, progressListener, progressRequestListener);
-        return call;
-
-        
-        
-        
-        
-    }
-
-    /**
-     * Create VNF Endpoint
-     * Create VNF Endpoint
-     * @param body  (optional)
-     * @return Model100InventoryVnfendpointResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public Model100InventoryVnfendpointResponse 100InventoryVnfendpointPost(Model100InventoryVnfendpointRequest body) throws ApiException {
-        ApiResponse<Model100InventoryVnfendpointResponse> resp = 100InventoryVnfendpointPostWithHttpInfo(body);
-        return resp.getData();
-    }
-
-    /**
-     * Create VNF Endpoint
-     * Create VNF Endpoint
-     * @param body  (optional)
-     * @return ApiResponse&lt;Model100InventoryVnfendpointResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     */
-    public ApiResponse<Model100InventoryVnfendpointResponse> 100InventoryVnfendpointPostWithHttpInfo(Model100InventoryVnfendpointRequest body) throws ApiException {
-        com.squareup.okhttp.Call call = 100InventoryVnfendpointPostValidateBeforeCall(body, null, null);
-        Type localVarReturnType = new TypeToken<Model100InventoryVnfendpointResponse>(){}.getType();
-        return apiClient.execute(call, localVarReturnType);
-    }
-
-    /**
-     * Create VNF Endpoint (asynchronously)
-     * Create VNF Endpoint
-     * @param body  (optional)
-     * @param callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     */
-    public com.squareup.okhttp.Call 100InventoryVnfendpointPostAsync(Model100InventoryVnfendpointRequest body, final ApiCallback<Model100InventoryVnfendpointResponse> callback) throws ApiException {
-
-        ProgressResponseBody.ProgressListener progressListener = null;
-        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
-
-        if (callback != null) {
-            progressListener = new ProgressResponseBody.ProgressListener() {
-                @Override
-                public void update(long bytesRead, long contentLength, boolean done) {
-                    callback.onDownloadProgress(bytesRead, contentLength, done);
-                }
-            };
-
-            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
-                @Override
-                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
-                    callback.onUploadProgress(bytesWritten, contentLength, done);
-                }
-            };
-        }
-
-        com.squareup.okhttp.Call call = 100InventoryVnfendpointPostValidateBeforeCall(body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Model100InventoryVnfendpointResponse>(){}.getType();
-        apiClient.executeAsync(call, localVarReturnType, callback);
-        return call;
-    }
-    /**
      * Build call for eis100EndpointsAssignTopologyTagByEndpointuuidPost
      * @param endpointuuid Unique identifier representing a specific endpoint (required)
      * @param body  (optional)
@@ -564,12 +72,13 @@ public class EndpointsApi {
      */
     public com.squareup.okhttp.Call eis100EndpointsAssignTopologyTagByEndpointuuidPostCall(String endpointuuid, Eis100EndpointsAssignTopologyTagRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = body;
-        
+
         // create path and map variables
         String localVarPath = "/eis/1.0.0/endpoints/{endpointuuid}/assign_topology_tag"
             .replaceAll("\\{" + "endpointuuid" + "\\}", apiClient.escapeString(endpointuuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -599,10 +108,10 @@ public class EndpointsApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        String[] localVarAuthNames = new String[] { "auth" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
     private com.squareup.okhttp.Call eis100EndpointsAssignTopologyTagByEndpointuuidPostValidateBeforeCall(String endpointuuid, Eis100EndpointsAssignTopologyTagRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
@@ -611,14 +120,10 @@ public class EndpointsApi {
             throw new ApiException("Missing the required parameter 'endpointuuid' when calling eis100EndpointsAssignTopologyTagByEndpointuuidPost(Async)");
         }
         
-        
+
         com.squareup.okhttp.Call call = eis100EndpointsAssignTopologyTagByEndpointuuidPostCall(endpointuuid, body, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -626,11 +131,11 @@ public class EndpointsApi {
      * Assign a Topology Tag to an Endpoint
      * @param endpointuuid Unique identifier representing a specific endpoint (required)
      * @param body  (optional)
-     * @return SuccessFragment
+     * @return List&lt;SuccessFragment&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public SuccessFragment eis100EndpointsAssignTopologyTagByEndpointuuidPost(String endpointuuid, Eis100EndpointsAssignTopologyTagRequest body) throws ApiException {
-        ApiResponse<SuccessFragment> resp = eis100EndpointsAssignTopologyTagByEndpointuuidPostWithHttpInfo(endpointuuid, body);
+    public List<SuccessFragment> eis100EndpointsAssignTopologyTagByEndpointuuidPost(String endpointuuid, Eis100EndpointsAssignTopologyTagRequest body) throws ApiException {
+        ApiResponse<List<SuccessFragment>> resp = eis100EndpointsAssignTopologyTagByEndpointuuidPostWithHttpInfo(endpointuuid, body);
         return resp.getData();
     }
 
@@ -639,12 +144,12 @@ public class EndpointsApi {
      * Assign a Topology Tag to an Endpoint
      * @param endpointuuid Unique identifier representing a specific endpoint (required)
      * @param body  (optional)
-     * @return ApiResponse&lt;SuccessFragment&gt;
+     * @return ApiResponse&lt;List&lt;SuccessFragment&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<SuccessFragment> eis100EndpointsAssignTopologyTagByEndpointuuidPostWithHttpInfo(String endpointuuid, Eis100EndpointsAssignTopologyTagRequest body) throws ApiException {
+    public ApiResponse<List<SuccessFragment>> eis100EndpointsAssignTopologyTagByEndpointuuidPostWithHttpInfo(String endpointuuid, Eis100EndpointsAssignTopologyTagRequest body) throws ApiException {
         com.squareup.okhttp.Call call = eis100EndpointsAssignTopologyTagByEndpointuuidPostValidateBeforeCall(endpointuuid, body, null, null);
-        Type localVarReturnType = new TypeToken<SuccessFragment>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<SuccessFragment>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -657,7 +162,7 @@ public class EndpointsApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call eis100EndpointsAssignTopologyTagByEndpointuuidPostAsync(String endpointuuid, Eis100EndpointsAssignTopologyTagRequest body, final ApiCallback<SuccessFragment> callback) throws ApiException {
+    public com.squareup.okhttp.Call eis100EndpointsAssignTopologyTagByEndpointuuidPostAsync(String endpointuuid, Eis100EndpointsAssignTopologyTagRequest body, final ApiCallback<List<SuccessFragment>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -679,7 +184,487 @@ public class EndpointsApi {
         }
 
         com.squareup.okhttp.Call call = eis100EndpointsAssignTopologyTagByEndpointuuidPostValidateBeforeCall(endpointuuid, body, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<SuccessFragment>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<SuccessFragment>>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for inventoryEndpointByEndpointuuidGet
+     * @param endpointuuid Unique identifier representing a specific endpoint (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call inventoryEndpointByEndpointuuidGetCall(String endpointuuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/1.0.0/inventory/endpoint/{endpointuuid}"
+            .replaceAll("\\{" + "endpointuuid" + "\\}", apiClient.escapeString(endpointuuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "auth" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call inventoryEndpointByEndpointuuidGetValidateBeforeCall(String endpointuuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'endpointuuid' is set
+        if (endpointuuid == null) {
+            throw new ApiException("Missing the required parameter 'endpointuuid' when calling inventoryEndpointByEndpointuuidGet(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = inventoryEndpointByEndpointuuidGetCall(endpointuuid, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Get information about the specified endpoint
+     * Get information about the specified endpoint
+     * @param endpointuuid Unique identifier representing a specific endpoint (required)
+     * @return InventoryEndpointResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public InventoryEndpointResponse inventoryEndpointByEndpointuuidGet(String endpointuuid) throws ApiException {
+        ApiResponse<InventoryEndpointResponse> resp = inventoryEndpointByEndpointuuidGetWithHttpInfo(endpointuuid);
+        return resp.getData();
+    }
+
+    /**
+     * Get information about the specified endpoint
+     * Get information about the specified endpoint
+     * @param endpointuuid Unique identifier representing a specific endpoint (required)
+     * @return ApiResponse&lt;InventoryEndpointResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<InventoryEndpointResponse> inventoryEndpointByEndpointuuidGetWithHttpInfo(String endpointuuid) throws ApiException {
+        com.squareup.okhttp.Call call = inventoryEndpointByEndpointuuidGetValidateBeforeCall(endpointuuid, null, null);
+        Type localVarReturnType = new TypeToken<InventoryEndpointResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get information about the specified endpoint (asynchronously)
+     * Get information about the specified endpoint
+     * @param endpointuuid Unique identifier representing a specific endpoint (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call inventoryEndpointByEndpointuuidGetAsync(String endpointuuid, final ApiCallback<InventoryEndpointResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = inventoryEndpointByEndpointuuidGetValidateBeforeCall(endpointuuid, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<InventoryEndpointResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for inventoryEndpointsCustomeruuidByCustomeruuidGet
+     * @param customeruuid Unique identifier representing a specific customer (required)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call inventoryEndpointsCustomeruuidByCustomeruuidGetCall(String customeruuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/1.0.0/inventory/endpoints/customeruuid/{customeruuid}"
+            .replaceAll("\\{" + "customeruuid" + "\\}", apiClient.escapeString(customeruuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "auth" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call inventoryEndpointsCustomeruuidByCustomeruuidGetValidateBeforeCall(String customeruuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+        // verify the required parameter 'customeruuid' is set
+        if (customeruuid == null) {
+            throw new ApiException("Missing the required parameter 'customeruuid' when calling inventoryEndpointsCustomeruuidByCustomeruuidGet(Async)");
+        }
+        
+
+        com.squareup.okhttp.Call call = inventoryEndpointsCustomeruuidByCustomeruuidGetCall(customeruuid, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Get list of endpoints for a customer
+     * Get list of endpoints for a customer
+     * @param customeruuid Unique identifier representing a specific customer (required)
+     * @return InventoryEndpointsCustomeruuidResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public InventoryEndpointsCustomeruuidResponse inventoryEndpointsCustomeruuidByCustomeruuidGet(String customeruuid) throws ApiException {
+        ApiResponse<InventoryEndpointsCustomeruuidResponse> resp = inventoryEndpointsCustomeruuidByCustomeruuidGetWithHttpInfo(customeruuid);
+        return resp.getData();
+    }
+
+    /**
+     * Get list of endpoints for a customer
+     * Get list of endpoints for a customer
+     * @param customeruuid Unique identifier representing a specific customer (required)
+     * @return ApiResponse&lt;InventoryEndpointsCustomeruuidResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<InventoryEndpointsCustomeruuidResponse> inventoryEndpointsCustomeruuidByCustomeruuidGetWithHttpInfo(String customeruuid) throws ApiException {
+        com.squareup.okhttp.Call call = inventoryEndpointsCustomeruuidByCustomeruuidGetValidateBeforeCall(customeruuid, null, null);
+        Type localVarReturnType = new TypeToken<InventoryEndpointsCustomeruuidResponse>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Get list of endpoints for a customer (asynchronously)
+     * Get list of endpoints for a customer
+     * @param customeruuid Unique identifier representing a specific customer (required)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call inventoryEndpointsCustomeruuidByCustomeruuidGetAsync(String customeruuid, final ApiCallback<InventoryEndpointsCustomeruuidResponse> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = inventoryEndpointsCustomeruuidByCustomeruuidGetValidateBeforeCall(customeruuid, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<InventoryEndpointsCustomeruuidResponse>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for inventoryRegularendpointPost
+     * @param body  (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call inventoryRegularendpointPostCall(InventoryRegularendpointRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+
+        // create path and map variables
+        String localVarPath = "/1.0.0/inventory/regularendpoint";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "auth" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call inventoryRegularendpointPostValidateBeforeCall(InventoryRegularendpointRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+
+        com.squareup.okhttp.Call call = inventoryRegularendpointPostCall(body, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Create Physical (Port) Endpoint
+     * Create Physical (Port) Endpoint
+     * @param body  (optional)
+     * @return List&lt;InventoryRegularendpointResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<InventoryRegularendpointResponse> inventoryRegularendpointPost(InventoryRegularendpointRequest body) throws ApiException {
+        ApiResponse<List<InventoryRegularendpointResponse>> resp = inventoryRegularendpointPostWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * Create Physical (Port) Endpoint
+     * Create Physical (Port) Endpoint
+     * @param body  (optional)
+     * @return ApiResponse&lt;List&lt;InventoryRegularendpointResponse&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<InventoryRegularendpointResponse>> inventoryRegularendpointPostWithHttpInfo(InventoryRegularendpointRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = inventoryRegularendpointPostValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<List<InventoryRegularendpointResponse>>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Create Physical (Port) Endpoint (asynchronously)
+     * Create Physical (Port) Endpoint
+     * @param body  (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call inventoryRegularendpointPostAsync(InventoryRegularendpointRequest body, final ApiCallback<List<InventoryRegularendpointResponse>> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = inventoryRegularendpointPostValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<List<InventoryRegularendpointResponse>>(){}.getType();
+        apiClient.executeAsync(call, localVarReturnType, callback);
+        return call;
+    }
+    /**
+     * Build call for inventoryVnfendpointPost
+     * @param body  (optional)
+     * @param progressListener Progress listener
+     * @param progressRequestListener Progress request listener
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     */
+    public com.squareup.okhttp.Call inventoryVnfendpointPostCall(InventoryVnfendpointRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        Object localVarPostBody = body;
+
+        // create path and map variables
+        String localVarPath = "/1.0.0/inventory/vnfendpoint";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) localVarHeaderParams.put("Accept", localVarAccept);
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        if(progressListener != null) {
+            apiClient.getHttpClient().networkInterceptors().add(new com.squareup.okhttp.Interceptor() {
+                @Override
+                public com.squareup.okhttp.Response intercept(com.squareup.okhttp.Interceptor.Chain chain) throws IOException {
+                    com.squareup.okhttp.Response originalResponse = chain.proceed(chain.request());
+                    return originalResponse.newBuilder()
+                    .body(new ProgressResponseBody(originalResponse.body(), progressListener))
+                    .build();
+                }
+            });
+        }
+
+        String[] localVarAuthNames = new String[] { "auth" };
+        return apiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private com.squareup.okhttp.Call inventoryVnfendpointPostValidateBeforeCall(InventoryVnfendpointRequest body, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+        
+
+        com.squareup.okhttp.Call call = inventoryVnfendpointPostCall(body, progressListener, progressRequestListener);
+        return call;
+
+    }
+
+    /**
+     * Create VNF Endpoint
+     * Create VNF Endpoint
+     * @param body  (optional)
+     * @return List&lt;InventoryVnfendpointResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public List<InventoryVnfendpointResponse> inventoryVnfendpointPost(InventoryVnfendpointRequest body) throws ApiException {
+        ApiResponse<List<InventoryVnfendpointResponse>> resp = inventoryVnfendpointPostWithHttpInfo(body);
+        return resp.getData();
+    }
+
+    /**
+     * Create VNF Endpoint
+     * Create VNF Endpoint
+     * @param body  (optional)
+     * @return ApiResponse&lt;List&lt;InventoryVnfendpointResponse&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     */
+    public ApiResponse<List<InventoryVnfendpointResponse>> inventoryVnfendpointPostWithHttpInfo(InventoryVnfendpointRequest body) throws ApiException {
+        com.squareup.okhttp.Call call = inventoryVnfendpointPostValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<List<InventoryVnfendpointResponse>>(){}.getType();
+        return apiClient.execute(call, localVarReturnType);
+    }
+
+    /**
+     * Create VNF Endpoint (asynchronously)
+     * Create VNF Endpoint
+     * @param body  (optional)
+     * @param callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     */
+    public com.squareup.okhttp.Call inventoryVnfendpointPostAsync(InventoryVnfendpointRequest body, final ApiCallback<List<InventoryVnfendpointResponse>> callback) throws ApiException {
+
+        ProgressResponseBody.ProgressListener progressListener = null;
+        ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
+
+        if (callback != null) {
+            progressListener = new ProgressResponseBody.ProgressListener() {
+                @Override
+                public void update(long bytesRead, long contentLength, boolean done) {
+                    callback.onDownloadProgress(bytesRead, contentLength, done);
+                }
+            };
+
+            progressRequestListener = new ProgressRequestBody.ProgressRequestListener() {
+                @Override
+                public void onRequestProgress(long bytesWritten, long contentLength, boolean done) {
+                    callback.onUploadProgress(bytesWritten, contentLength, done);
+                }
+            };
+        }
+
+        com.squareup.okhttp.Call call = inventoryVnfendpointPostValidateBeforeCall(body, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<List<InventoryVnfendpointResponse>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

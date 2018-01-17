@@ -27,8 +27,8 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import TelstraTPN.AccountResponse;
 import TelstraTPN.Error;
-import TelstraTPN.Model100AccountResponse;
 import TelstraTPN.User;
 
 import java.lang.reflect.Type;
@@ -57,21 +57,22 @@ public class CustomersApi {
     }
 
     /**
-     * Build call for 100AccountByCustomeruuidGet
+     * Build call for accountByCustomeruuidGet
      * @param customeruuid Unique identifier representing a specific customer (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call 100AccountByCustomeruuidGetCall(String customeruuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call accountByCustomeruuidGetCall(String customeruuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/1.0.0/account/{customeruuid}"
             .replaceAll("\\{" + "customeruuid" + "\\}", apiClient.escapeString(customeruuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -101,37 +102,33 @@ public class CustomersApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        String[] localVarAuthNames = new String[] { "auth" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call 100AccountByCustomeruuidGetValidateBeforeCall(String customeruuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call accountByCustomeruuidGetValidateBeforeCall(String customeruuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'customeruuid' is set
         if (customeruuid == null) {
-            throw new ApiException("Missing the required parameter 'customeruuid' when calling 100AccountByCustomeruuidGet(Async)");
+            throw new ApiException("Missing the required parameter 'customeruuid' when calling accountByCustomeruuidGet(Async)");
         }
         
-        
-        com.squareup.okhttp.Call call = 100AccountByCustomeruuidGetCall(customeruuid, progressListener, progressRequestListener);
+
+        com.squareup.okhttp.Call call = accountByCustomeruuidGetCall(customeruuid, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Get account information details
      * Get the account information for the specified customer
      * @param customeruuid Unique identifier representing a specific customer (required)
-     * @return Model100AccountResponse
+     * @return List&lt;AccountResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Model100AccountResponse 100AccountByCustomeruuidGet(String customeruuid) throws ApiException {
-        ApiResponse<Model100AccountResponse> resp = 100AccountByCustomeruuidGetWithHttpInfo(customeruuid);
+    public List<AccountResponse> accountByCustomeruuidGet(String customeruuid) throws ApiException {
+        ApiResponse<List<AccountResponse>> resp = accountByCustomeruuidGetWithHttpInfo(customeruuid);
         return resp.getData();
     }
 
@@ -139,12 +136,12 @@ public class CustomersApi {
      * Get account information details
      * Get the account information for the specified customer
      * @param customeruuid Unique identifier representing a specific customer (required)
-     * @return ApiResponse&lt;Model100AccountResponse&gt;
+     * @return ApiResponse&lt;List&lt;AccountResponse&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Model100AccountResponse> 100AccountByCustomeruuidGetWithHttpInfo(String customeruuid) throws ApiException {
-        com.squareup.okhttp.Call call = 100AccountByCustomeruuidGetValidateBeforeCall(customeruuid, null, null);
-        Type localVarReturnType = new TypeToken<Model100AccountResponse>(){}.getType();
+    public ApiResponse<List<AccountResponse>> accountByCustomeruuidGetWithHttpInfo(String customeruuid) throws ApiException {
+        com.squareup.okhttp.Call call = accountByCustomeruuidGetValidateBeforeCall(customeruuid, null, null);
+        Type localVarReturnType = new TypeToken<List<AccountResponse>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -156,7 +153,7 @@ public class CustomersApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call 100AccountByCustomeruuidGetAsync(String customeruuid, final ApiCallback<Model100AccountResponse> callback) throws ApiException {
+    public com.squareup.okhttp.Call accountByCustomeruuidGetAsync(String customeruuid, final ApiCallback<List<AccountResponse>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -177,27 +174,28 @@ public class CustomersApi {
             };
         }
 
-        com.squareup.okhttp.Call call = 100AccountByCustomeruuidGetValidateBeforeCall(customeruuid, progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<Model100AccountResponse>(){}.getType();
+        com.squareup.okhttp.Call call = accountByCustomeruuidGetValidateBeforeCall(customeruuid, progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<List<AccountResponse>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }
     /**
-     * Build call for 100AccountUserByCustomeruuidGet
+     * Build call for accountUserByCustomeruuidGet
      * @param customeruuid Unique identifier representing a specific customer (required)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call 100AccountUserByCustomeruuidGetCall(String customeruuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call accountUserByCustomeruuidGetCall(String customeruuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/1.0.0/account/{customeruuid}/user"
             .replaceAll("\\{" + "customeruuid" + "\\}", apiClient.escapeString(customeruuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -227,26 +225,22 @@ public class CustomersApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        String[] localVarAuthNames = new String[] { "auth" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call 100AccountUserByCustomeruuidGetValidateBeforeCall(String customeruuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call accountUserByCustomeruuidGetValidateBeforeCall(String customeruuid, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'customeruuid' is set
         if (customeruuid == null) {
-            throw new ApiException("Missing the required parameter 'customeruuid' when calling 100AccountUserByCustomeruuidGet(Async)");
+            throw new ApiException("Missing the required parameter 'customeruuid' when calling accountUserByCustomeruuidGet(Async)");
         }
         
-        
-        com.squareup.okhttp.Call call = 100AccountUserByCustomeruuidGetCall(customeruuid, progressListener, progressRequestListener);
+
+        com.squareup.okhttp.Call call = accountUserByCustomeruuidGetCall(customeruuid, progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
@@ -256,8 +250,8 @@ public class CustomersApi {
      * @return List&lt;User&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<User> 100AccountUserByCustomeruuidGet(String customeruuid) throws ApiException {
-        ApiResponse<List<User>> resp = 100AccountUserByCustomeruuidGetWithHttpInfo(customeruuid);
+    public List<User> accountUserByCustomeruuidGet(String customeruuid) throws ApiException {
+        ApiResponse<List<User>> resp = accountUserByCustomeruuidGetWithHttpInfo(customeruuid);
         return resp.getData();
     }
 
@@ -268,8 +262,8 @@ public class CustomersApi {
      * @return ApiResponse&lt;List&lt;User&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<User>> 100AccountUserByCustomeruuidGetWithHttpInfo(String customeruuid) throws ApiException {
-        com.squareup.okhttp.Call call = 100AccountUserByCustomeruuidGetValidateBeforeCall(customeruuid, null, null);
+    public ApiResponse<List<User>> accountUserByCustomeruuidGetWithHttpInfo(String customeruuid) throws ApiException {
+        com.squareup.okhttp.Call call = accountUserByCustomeruuidGetValidateBeforeCall(customeruuid, null, null);
         Type localVarReturnType = new TypeToken<List<User>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -282,7 +276,7 @@ public class CustomersApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call 100AccountUserByCustomeruuidGetAsync(String customeruuid, final ApiCallback<List<User>> callback) throws ApiException {
+    public com.squareup.okhttp.Call accountUserByCustomeruuidGetAsync(String customeruuid, final ApiCallback<List<User>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -303,7 +297,7 @@ public class CustomersApi {
             };
         }
 
-        com.squareup.okhttp.Call call = 100AccountUserByCustomeruuidGetValidateBeforeCall(customeruuid, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = accountUserByCustomeruuidGetValidateBeforeCall(customeruuid, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<User>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

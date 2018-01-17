@@ -28,8 +28,8 @@ import java.io.IOException;
 
 
 import TelstraTPN.Error;
-import TelstraTPN.Model100InventoryDatacenters401Error;
-import TelstraTPN.Model100InventoryDatacentersResponse;
+import TelstraTPN.InventoryDatacenters401Error;
+import TelstraTPN.InventoryDatacentersResponse;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -57,19 +57,20 @@ public class DatacentresApi {
     }
 
     /**
-     * Build call for 100InventoryDatacentersGet
+     * Build call for inventoryDatacentersGet
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call 100InventoryDatacentersGetCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call inventoryDatacentersGetCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = null;
-        
+
         // create path and map variables
         String localVarPath = "/1.0.0/inventory/datacenters";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -99,43 +100,39 @@ public class DatacentresApi {
             });
         }
 
-        String[] localVarAuthNames = new String[] {  };
-        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
+        String[] localVarAuthNames = new String[] { "auth" };
+        return apiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAuthNames, progressRequestListener);
     }
-    
+
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call 100InventoryDatacentersGetValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call inventoryDatacentersGetValidateBeforeCall(final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
-        
-        com.squareup.okhttp.Call call = 100InventoryDatacentersGetCall(progressListener, progressRequestListener);
+
+        com.squareup.okhttp.Call call = inventoryDatacentersGetCall(progressListener, progressRequestListener);
         return call;
 
-        
-        
-        
-        
     }
 
     /**
      * Get list of all the data centers
      * Get list of all the data centers
-     * @return List&lt;Model100InventoryDatacentersResponse&gt;
+     * @return List&lt;InventoryDatacentersResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<Model100InventoryDatacentersResponse> 100InventoryDatacentersGet() throws ApiException {
-        ApiResponse<List<Model100InventoryDatacentersResponse>> resp = 100InventoryDatacentersGetWithHttpInfo();
+    public List<InventoryDatacentersResponse> inventoryDatacentersGet() throws ApiException {
+        ApiResponse<List<InventoryDatacentersResponse>> resp = inventoryDatacentersGetWithHttpInfo();
         return resp.getData();
     }
 
     /**
      * Get list of all the data centers
      * Get list of all the data centers
-     * @return ApiResponse&lt;List&lt;Model100InventoryDatacentersResponse&gt;&gt;
+     * @return ApiResponse&lt;List&lt;InventoryDatacentersResponse&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<Model100InventoryDatacentersResponse>> 100InventoryDatacentersGetWithHttpInfo() throws ApiException {
-        com.squareup.okhttp.Call call = 100InventoryDatacentersGetValidateBeforeCall(null, null);
-        Type localVarReturnType = new TypeToken<List<Model100InventoryDatacentersResponse>>(){}.getType();
+    public ApiResponse<List<InventoryDatacentersResponse>> inventoryDatacentersGetWithHttpInfo() throws ApiException {
+        com.squareup.okhttp.Call call = inventoryDatacentersGetValidateBeforeCall(null, null);
+        Type localVarReturnType = new TypeToken<List<InventoryDatacentersResponse>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
 
@@ -146,7 +143,7 @@ public class DatacentresApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call 100InventoryDatacentersGetAsync(final ApiCallback<List<Model100InventoryDatacentersResponse>> callback) throws ApiException {
+    public com.squareup.okhttp.Call inventoryDatacentersGetAsync(final ApiCallback<List<InventoryDatacentersResponse>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -167,8 +164,8 @@ public class DatacentresApi {
             };
         }
 
-        com.squareup.okhttp.Call call = 100InventoryDatacentersGetValidateBeforeCall(progressListener, progressRequestListener);
-        Type localVarReturnType = new TypeToken<List<Model100InventoryDatacentersResponse>>(){}.getType();
+        com.squareup.okhttp.Call call = inventoryDatacentersGetValidateBeforeCall(progressListener, progressRequestListener);
+        Type localVarReturnType = new TypeToken<List<InventoryDatacentersResponse>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;
     }

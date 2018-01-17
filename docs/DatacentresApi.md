@@ -4,12 +4,12 @@ All URIs are relative to *https://penapi.pacnetconnect.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**100InventoryDatacentersGet**](DatacentresApi.md#100InventoryDatacentersGet) | **GET** /1.0.0/inventory/datacenters | Get list of all the data centers
+[**inventoryDatacentersGet**](DatacentresApi.md#inventoryDatacentersGet) | **GET** /1.0.0/inventory/datacenters | Get list of all the data centers
 
 
-<a name="100InventoryDatacentersGet"></a>
-# **100InventoryDatacentersGet**
-> List&lt;Model100InventoryDatacentersResponse&gt; 100InventoryDatacentersGet()
+<a name="inventoryDatacentersGet"></a>
+# **inventoryDatacentersGet**
+> List&lt;InventoryDatacentersResponse&gt; inventoryDatacentersGet()
 
 Get list of all the data centers
 
@@ -18,16 +18,24 @@ Get list of all the data centers
 ### Example
 ```java
 // Import classes:
+//import invalidPackageName.ApiClient;
 //import invalidPackageName.ApiException;
+//import invalidPackageName.Configuration;
+//import invalidPackageName.auth.*;
 //import TelstraTPN.DatacentresApi;
 
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure OAuth2 access token for authorization: auth
+OAuth auth = (OAuth) defaultClient.getAuthentication("auth");
+auth.setAccessToken("YOUR ACCESS TOKEN");
 
 DatacentresApi apiInstance = new DatacentresApi();
 try {
-    List<Model100InventoryDatacentersResponse> result = apiInstance.100InventoryDatacentersGet();
+    List<InventoryDatacentersResponse> result = apiInstance.inventoryDatacentersGet();
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling DatacentresApi#100InventoryDatacentersGet");
+    System.err.println("Exception when calling DatacentresApi#inventoryDatacentersGet");
     e.printStackTrace();
 }
 ```
@@ -37,11 +45,11 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**List&lt;Model100InventoryDatacentersResponse&gt;**](Model100InventoryDatacentersResponse.md)
+[**List&lt;InventoryDatacentersResponse&gt;**](InventoryDatacentersResponse.md)
 
 ### Authorization
 
-No authorization required
+[auth](../README.md#auth)
 
 ### HTTP request headers
 
