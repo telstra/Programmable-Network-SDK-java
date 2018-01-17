@@ -29,7 +29,7 @@ import java.util.List;
 /**
  * InventoryLinksResponse
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-01-17T21:20:10.329+11:00")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2018-01-18T10:03:16.913+11:00")
 public class InventoryLinksResponse {
   @SerializedName("description")
   private String description = null;
